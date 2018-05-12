@@ -110,7 +110,15 @@ public class viewInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        // Cria uma instância da nova tela a ser aberta
+	FormFolha frmFolha = new FormFolha();
+
+	// Seta que ela deve ser visível
+	frmFolha.setVisible(true);
+
+	// Seta que ESTA tela não deve ser mais visível
+	this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

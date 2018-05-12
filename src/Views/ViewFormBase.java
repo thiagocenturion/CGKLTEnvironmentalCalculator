@@ -12,6 +12,31 @@ package Views;
 public class ViewFormBase extends javax.swing.JFrame {
 
     /**
+     * Esta propriedade fornece qual a página atual do form
+     */
+    protected int iPagAtual;
+    
+    /**
+     * Esta propriedade fornece quantas páginas no total existem no formuário
+     */
+    protected int iPagTotal;
+
+    
+    // GETTERS E SETTERS
+    public int getiPagAtual() {
+        return iPagAtual;
+    }
+    public void setiPagAtual(int iPagAtual) {
+        this.iPagAtual = iPagAtual;
+    }
+    public int getiPagTotal() {
+        return iPagTotal;
+    }
+    public void setiPagTotal(int iPagTotal) {
+        this.iPagTotal = iPagTotal;
+    }
+    
+    /**
      * Creates new form ViewFormBase
      */
     public ViewFormBase() {
@@ -27,57 +52,119 @@ public class ViewFormBase extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlDashboard = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        lblPag1 = new javax.swing.JLabel();
+        lblPag5 = new javax.swing.JLabel();
+        lblPag4 = new javax.swing.JLabel();
+        lblPag2 = new javax.swing.JLabel();
+        lblPag3 = new javax.swing.JLabel();
+        pnlFormulario = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        pnlDashboard.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblPag1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag1.setText("1");
+
+        lblPag5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag5.setText("5");
+
+        lblPag4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag4.setText("4");
+
+        lblPag2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag2.setText("2");
+
+        lblPag3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag3.setText("3");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(lblPag1)
+                .addGap(30, 30, 30)
+                .addComponent(lblPag2)
+                .addGap(30, 30, 30)
+                .addComponent(lblPag3)
+                .addGap(30, 30, 30)
+                .addComponent(lblPag4)
+                .addGap(30, 30, 30)
+                .addComponent(lblPag5)
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPag1)
+                    .addComponent(lblPag5)
+                    .addComponent(lblPag4)
+                    .addComponent(lblPag2)
+                    .addComponent(lblPag3))
+                .addGap(30, 30, 30))
+        );
+
+        javax.swing.GroupLayout pnlDashboardLayout = new javax.swing.GroupLayout(pnlDashboard);
+        pnlDashboard.setLayout(pnlDashboardLayout);
+        pnlDashboardLayout.setHorizontalGroup(
+            pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnlDashboardLayout.setVerticalGroup(
+            pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDashboardLayout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(518, Short.MAX_VALUE))
+        );
+
+        pnlFormulario.setBackground(new java.awt.Color(242, 242, 242));
+
+        javax.swing.GroupLayout pnlFormularioLayout = new javax.swing.GroupLayout(pnlFormulario);
+        pnlFormulario.setLayout(pnlFormularioLayout);
+        pnlFormularioLayout.setHorizontalGroup(
+            pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 706, Short.MAX_VALUE)
+        );
+        pnlFormularioLayout.setVerticalGroup(
+            pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(pnlFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addComponent(pnlDashboard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewFormBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewFormBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewFormBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewFormBase.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewFormBase().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel4;
+    protected javax.swing.JLabel lblPag1;
+    protected javax.swing.JLabel lblPag2;
+    protected javax.swing.JLabel lblPag3;
+    protected javax.swing.JLabel lblPag4;
+    protected javax.swing.JLabel lblPag5;
+    private javax.swing.JPanel pnlDashboard;
+    private javax.swing.JPanel pnlFormulario;
     // End of variables declaration//GEN-END:variables
 }
