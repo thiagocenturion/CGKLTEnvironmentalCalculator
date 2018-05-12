@@ -45,7 +45,6 @@ public class viewInicio extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -64,17 +63,17 @@ public class viewInicio extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(70, 178, 142));
+        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, ");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(70, 178, 142));
+        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("sed do eiusmod tempor incididunt ut labore et do dolrs");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(70, 178, 142));
+        jLabel8.setForeground(new java.awt.Color(153, 153, 153));
         jLabel8.setText("Ut enim ad minim veniam, quis nostrud exercitation up. ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, -1));
 
@@ -85,7 +84,7 @@ public class viewInicio extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, -40, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(70, 178, 142));
+        jLabel9.setForeground(new java.awt.Color(153, 153, 153));
         jLabel9.setText("ullamco laboris nisi ut aliquip ex ea commodo consequat. ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, 30));
 
