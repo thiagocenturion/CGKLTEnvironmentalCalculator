@@ -5,6 +5,9 @@
  */
 package Views;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author thiagocenturion
@@ -59,6 +62,10 @@ public class ViewFormBase extends javax.swing.JFrame {
         lblPag4 = new javax.swing.JLabel();
         lblPag2 = new javax.swing.JLabel();
         lblPag3 = new javax.swing.JLabel();
+        lblIcon = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        lblDescricao = new javax.swing.JLabel();
         pnlFormulario = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,18 +75,23 @@ public class ViewFormBase extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         lblPag1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag1.setForeground(new java.awt.Color(204, 204, 204));
         lblPag1.setText("1");
 
         lblPag5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag5.setForeground(new java.awt.Color(204, 204, 204));
         lblPag5.setText("5");
 
         lblPag4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag4.setForeground(new java.awt.Color(204, 204, 204));
         lblPag4.setText("4");
 
         lblPag2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag2.setForeground(new java.awt.Color(204, 204, 204));
         lblPag2.setText("2");
 
         lblPag3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblPag3.setForeground(new java.awt.Color(204, 204, 204));
         lblPag3.setText("3");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -87,17 +99,17 @@ public class ViewFormBase extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblPag1)
-                .addGap(30, 30, 30)
+                .addGap(45, 45, 45)
                 .addComponent(lblPag2)
-                .addGap(30, 30, 30)
+                .addGap(45, 45, 45)
                 .addComponent(lblPag3)
-                .addGap(30, 30, 30)
+                .addGap(45, 45, 45)
                 .addComponent(lblPag4)
-                .addGap(30, 30, 30)
+                .addGap(45, 45, 45)
                 .addComponent(lblPag5)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,17 +124,52 @@ public class ViewFormBase extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
+        lblIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IconFolha.png"))); // NOI18N
+
+        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(50, 15));
+        jSeparator1.setSize(new java.awt.Dimension(50, 15));
+
+        jLabel1.setFont(new java.awt.Font("Myriad Pro", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Título");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lblDescricao.setForeground(new java.awt.Color(153, 153, 153));
+        lblDescricao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDescricao.setText("A utilização da folha esta intrinscamente ligada ao nosso cotidiano de maneira direta e indireta. Consequentemente, são gastos 10 litros d’água e 0,013% de uma árvore de Eucalipto para a produção de 1 folha A4.");
+
         javax.swing.GroupLayout pnlDashboardLayout = new javax.swing.GroupLayout(pnlDashboard);
         pnlDashboard.setLayout(pnlDashboardLayout);
         pnlDashboardLayout.setHorizontalGroup(
             pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlDashboardLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashboardLayout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(lblDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         pnlDashboardLayout.setVerticalGroup(
             pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(518, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(lblIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(lblDescricao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pnlFormulario.setBackground(new java.awt.Color(242, 242, 242));
@@ -158,7 +205,11 @@ public class ViewFormBase extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JSeparator jSeparator1;
+    protected javax.swing.JLabel lblDescricao;
+    protected javax.swing.JLabel lblIcon;
     protected javax.swing.JLabel lblPag1;
     protected javax.swing.JLabel lblPag2;
     protected javax.swing.JLabel lblPag3;
