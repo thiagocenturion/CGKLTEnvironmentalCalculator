@@ -5,11 +5,6 @@
  */
 package Views;
 
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Insets;
-import javax.swing.border.Border;
-
 /**
  *
  * @author carlo
@@ -21,6 +16,17 @@ public class viewInicio extends javax.swing.JFrame {
      */
     public viewInicio() {
         initComponents();
+        
+        // Inicia as configurações dos controles de tela
+        iniciaControles();
+    }
+    
+    private void iniciaControles() {
+        
+        // Descrição é configurada em HTML para ter o efeito 'word wrap', o que torna a label multi-linhas
+        // com alinhamento justificado na tag <p></p>
+//        this.jLabel6.setText("<HTML><p align=\"justify\">A utilização da folha está intrinscamente ligada ao nosso cotidiano de maneira direta e indireta. Consequentemente, são gastos 10 litros d’água e 0,013% de uma árvore de Eucalipto para a produção de 1 folha A4.</p></HTML>");
+        
     }
 
     /**
@@ -41,7 +47,7 @@ public class viewInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnIniciar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,18 +94,20 @@ public class viewInicio extends javax.swing.JFrame {
         jLabel9.setText("ullamco laboris nisi ut aliquip ex ea commodo consequat. ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, 30));
 
-        jButton1.setBackground(new java.awt.Color(1, 30, 152));
-        jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Iniciar");
-        jButton1.setAlignmentX(1.0F);
-        jButton1.setAlignmentY(1.0F);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciar.setBackground(new java.awt.Color(0, 78, 64));
+        btnIniciar.setFont(new java.awt.Font("Myriad Pro", 0, 18)); // NOI18N
+        btnIniciar.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciar.setText("Iniciar");
+        btnIniciar.setAlignmentX(1.0F);
+        btnIniciar.setAlignmentY(1.0F);
+        btnIniciar.setBorder(null);
+        btnIniciar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnIniciarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 130, 40));
+        jPanel1.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 150, 30));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lateral_e.png"))); // NOI18N
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -109,17 +117,17 @@ public class viewInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         
         // Cria uma instância da nova tela a ser aberta
-	FormFolha frmFolha = new FormFolha();
+	FormFolha frmFolha = new FormFolha(1);
 
 	// Seta que ela deve ser visível
 	frmFolha.setVisible(true);
 
 	// Seta que ESTA tela não deve ser mais visível
 	this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,34 +164,8 @@ public class viewInicio extends javax.swing.JFrame {
         });
     }
 
-
-private static class RoundedBorder implements Border {
-
-    private int radius;
-
-
-    RoundedBorder(int radius) {
-        this.radius = radius;
-    }
-
-
-    public Insets getBorderInsets(Component c) {
-        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-    }
-
-
-    public boolean isBorderOpaque() {
-        return true;
-    }
-
-
-    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-    }
-}
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnIniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
