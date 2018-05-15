@@ -6,6 +6,8 @@
 package Views;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -59,6 +61,10 @@ public class ViewFormBase extends javax.swing.JFrame {
         
         // Coloca a label ativa conforme seu valor e desativa as outras
         atualizaPaginaAtiva();
+        
+        // Esta operação faz com que o Form apareça no centro da tela
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
     
     private void atualizaPaginaAtiva() {

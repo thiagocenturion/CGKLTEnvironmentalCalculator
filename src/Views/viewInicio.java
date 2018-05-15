@@ -5,6 +5,9 @@
  */
 package Views;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author carlo
@@ -27,6 +30,9 @@ public class viewInicio extends javax.swing.JFrame {
         // com alinhamento justificado na tag <p></p>
 //        this.jLabel6.setText("<HTML><p align=\"justify\">A utilização da folha está intrinscamente ligada ao nosso cotidiano de maneira direta e indireta. Consequentemente, são gastos 10 litros d’água e 0,013% de uma árvore de Eucalipto para a produção de 1 folha A4.</p></HTML>");
         
+        // Esta operação faz com que o Form apareça no centro da tela
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
