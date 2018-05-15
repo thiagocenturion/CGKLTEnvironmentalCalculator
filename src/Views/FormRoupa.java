@@ -5,6 +5,7 @@
  */
 package Views;
 
+import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
 /**
@@ -51,16 +52,32 @@ public class FormRoupa extends ViewFormBase {
         this.btnOpcao1C.setText("Nenhuma");
         
         // Configura segunda questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
-        this.btnOpcao1A.setText("Sim");
-        this.btnOpcao1B.setText("Não");
-        this.btnOpcao1C.setText("Não sei");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
+        this.btnOpcao2A.setText("Sim");
+        this.btnOpcao2B.setText("Não");
+        this.btnOpcao2C.setText("Não sei");
         
         // Configura terceira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantos cadernos tem em sua casa?</p></HTML>");
-        this.btnOpcao1A.setText("1 a 2 cadernos");
-        this.btnOpcao1B.setText("3 a 4 cadernos");
-        this.btnOpcao1C.setText("5 ou mais");
+        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantos cadernos tem em sua casa?</p></HTML>");
+        this.btnOpcao3A.setText("1 a 2 cadernos");
+        this.btnOpcao3B.setText("3 a 4 cadernos");
+        this.btnOpcao3C.setText("5 ou mais");
+        
+        // Expressão Lambda para evento de clique do botão Continuar
+        this.btnContinuar.addActionListener((ActionEvent e) -> {
+            
+            // Cria uma instância da nova tela a ser aberta
+            FormAlimento formAlimentos = new FormAlimento(5);
+
+            // Seta que ela deve ser visível
+            formAlimentos.setVisible(true);
+
+            // Seta que ESTA tela não deve ser mais visível
+            this.setVisible(false);
+
+            // Para todas as telas secundárias, ou seja, que não são as principais, utilizar este método também
+            this.dispose();
+        });
     }
     
 }

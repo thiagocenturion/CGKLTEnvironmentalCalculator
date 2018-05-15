@@ -578,7 +578,7 @@ public class ViewFormBase extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnContinuar;
+    protected javax.swing.JButton btnContinuar;
     protected javax.swing.JRadioButton btnOpcao1A;
     protected javax.swing.JRadioButton btnOpcao1B;
     protected javax.swing.JRadioButton btnOpcao1C;
