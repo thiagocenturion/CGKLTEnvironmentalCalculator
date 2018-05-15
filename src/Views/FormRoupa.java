@@ -40,28 +40,28 @@ public class FormRoupa extends ViewFormBase {
         
         // Descrição é configurada em HTML para ter o efeito 'word wrap', o que torna a label multi-linhas
         // com alinhamento justificado na tag <p></p>
-        this.lblDescricao.setText("<HTML><p align=\"justify\">A utilização da folha está intrinscamente ligada ao nosso cotidiano de maneira direta e indireta. Consequentemente, são gastos 10 litros d’água e 0,013% de uma árvore de Eucalipto para a produção de 1 folha A4.</p></HTML>");
+        this.lblDescricao.setText("<HTML><p align=\"justify\">As roupas são acessórios utilizados pela sociedade há séculos, assim como seus impactos no meio ambiente. A fabricação de apenas uma calça jeans são gastos 10 mil litros de água.</p></HTML>");
         
         // Icone que acompanha o titulo e descricao da página
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconRoupas.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantas das suas faturas são entregues por correspondências, ou seja, em casa?</p></HTML>");
-        this.btnOpcao1A.setText("Todas");
-        this.btnOpcao1B.setText("Algumas");
-        this.btnOpcao1C.setText("Nenhuma");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantas calças jeans você possui?</p></HTML>");
+        this.btnOpcao1A.setText("Até 3");
+        this.btnOpcao1B.setText("5 a 10");
+        this.btnOpcao1C.setText("10 em diante");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
-        this.btnOpcao2A.setText("Sim");
-        this.btnOpcao2B.setText("Não");
-        this.btnOpcao2C.setText("Não sei");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Você tem roupas de bréchos, bazares e/ou sustentáveis? </p></HTML>");
+        this.btnOpcao2A.setText("Sim, todas");
+        this.btnOpcao2B.setText("Sim, algumas");
+        this.btnOpcao2C.setText("Minoria ou nenhuma");
         
         // Configura terceira questão da página
-        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantos cadernos tem em sua casa?</p></HTML>");
-        this.btnOpcao3A.setText("1 a 2 cadernos");
-        this.btnOpcao3B.setText("3 a 4 cadernos");
-        this.btnOpcao3C.setText("5 ou mais");
+        this.lblPerg3.setText("<HTML><p align=\"justify\">Com qual frequência você compra roupas?</p></HTML>");
+        this.btnOpcao3A.setText("Mensalmente");
+        this.btnOpcao3B.setText("Trimestralmente");
+        this.btnOpcao3C.setText("Semestralmente");
         
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {

@@ -46,19 +46,19 @@ public class FormAlimento extends ViewFormBase {
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconAlimentos.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantas das suas faturas são entregues por correspondências, ou seja, em casa?</p></HTML>");
-        this.btnOpcao1A.setText("Todas");
-        this.btnOpcao1B.setText("Algumas");
-        this.btnOpcao1C.setText("Nenhuma");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Com qual frequencia você come carne?</p></HTML>");
+        this.btnOpcao1A.setText("Todos os dias");
+        this.btnOpcao1B.setText("Algumas vezes na semana");
+        this.btnOpcao1C.setText("Raramente");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
-        this.btnOpcao2A.setText("Sim");
-        this.btnOpcao2B.setText("Não");
-        this.btnOpcao2C.setText("Não sei");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Com qual frequencia você come frutas, legumes e verduras ? </p></HTML>");
+        this.btnOpcao2A.setText("Todos os dias");
+        this.btnOpcao2B.setText("Algumas vezes na semana");
+        this.btnOpcao2C.setText("Raramente");
         
         // Configura terceira questão da página
-        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantos cadernos tem em sua casa?</p></HTML>");
+        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantas vezes por dia costuma fazer refeição?</p></HTML>");
         this.btnOpcao3A.setText("1 a 2 cadernos");
         this.btnOpcao3B.setText("3 a 4 cadernos");
         this.btnOpcao3C.setText("5 ou mais");

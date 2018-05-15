@@ -46,22 +46,22 @@ public class FormAutomovel extends ViewFormBase {
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconAutomoveis.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantas das suas faturas são entregues por correspondências, ou seja, em casa?</p></HTML>");
-        this.btnOpcao1A.setText("Todas");
-        this.btnOpcao1B.setText("Algumas");
-        this.btnOpcao1C.setText("Nenhuma");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantos automóveis você tem?</p></HTML>");
+        this.btnOpcao1A.setText("Nenhum");
+        this.btnOpcao1B.setText("1 a 2 automóveis");
+        this.btnOpcao1C.setText("Mais que 3 automóveis");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
-        this.btnOpcao2A.setText("Sim");
-        this.btnOpcao2B.setText("Não");
-        this.btnOpcao2C.setText("Não sei");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Você usa o carro para ir trabalhar ou só para sair nos finais de semana?</p></HTML>");
+        this.btnOpcao2A.setText("Só para ir trabalhar");
+        this.btnOpcao2B.setText("Só para sair socialmente");
+        this.btnOpcao2C.setText("Trabalhar e sair socialmente");
         
         // Configura terceira questão da página
-        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantos cadernos tem em sua casa?</p></HTML>");
-        this.btnOpcao3A.setText("1 a 2 cadernos");
-        this.btnOpcao3B.setText("3 a 4 cadernos");
-        this.btnOpcao3C.setText("5 ou mais");
+        this.lblPerg3.setText("<HTML><p align=\"justify\">Qual o tipo de combustível que você utiliza para abastecer o seu automóvel principal?</p></HTML>");
+        this.btnOpcao3A.setText("Etanol");
+        this.btnOpcao3B.setText("Gasolina");
+        this.btnOpcao3C.setText("Diesel");
         
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {

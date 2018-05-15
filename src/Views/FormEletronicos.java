@@ -46,10 +46,10 @@ public class FormEletronicos extends ViewFormBase {
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconEletronicos.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantas das suas faturas são entregues por correspondências, ou seja, em casa?</p></HTML>");
-        this.btnOpcao1A.setText("Todas");
-        this.btnOpcao1B.setText("Algumas");
-        this.btnOpcao1C.setText("Nenhuma");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantos celulares você teve nos últimos 5 anos?</p></HTML>");
+        this.btnOpcao1A.setText("Nenhum ou 1");
+        this.btnOpcao1B.setText("2 ou 3");
+        this.btnOpcao1C.setText("4 ou mais");
         
         // Configura segunda questão da página
         this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
