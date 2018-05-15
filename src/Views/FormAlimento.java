@@ -63,6 +63,9 @@ public class FormAlimento extends ViewFormBase {
         this.btnOpcao3B.setText("3 a 4 cadernos");
         this.btnOpcao3C.setText("5 ou mais");
         
+        // Setup do texto apresentado no botão para 'finalizar' e ir para a tela final
+        this.btnContinuar.setText("Finalizar");
+        
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {
             System.out.println("Teste!");
