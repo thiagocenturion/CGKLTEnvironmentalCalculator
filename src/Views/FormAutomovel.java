@@ -40,7 +40,7 @@ public class FormAutomovel extends ViewFormBase {
         
         // Descrição é configurada em HTML para ter o efeito 'word wrap', o que torna a label multi-linhas
         // com alinhamento justificado na tag <p></p>
-        this.lblDescricao.setText("<HTML><p align=\"justify\">A utilização da folha está intrinscamente ligada ao nosso cotidiano de maneira direta e indireta. Consequentemente, são gastos 10 litros d’água e 0,013% de uma árvore de Eucalipto para a produção de 1 folha A4.</p></HTML>");
+        this.lblDescricao.setText("<HTML><p align=\"justify\">Os automóveis são essências para qualquer pessoa no século XXI, utilizados para transporte de pessoas, cargas entre outros. Porém, o mesmo automóvel que ajuda a população também está contribuindo para o fim do planeta aos poucos. Hoje, ele já é a invenção do homem que mais polui o planeta, não só por suas carcaças, mas também por precisar de bateria, combustível e água.</p></HTML>");
         
         // Icone que acompanha o titulo e descricao da página
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconAutomoveis.png")) );
