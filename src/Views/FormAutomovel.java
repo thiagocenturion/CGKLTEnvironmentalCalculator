@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Classes.ModelAutomoveis;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -66,8 +67,22 @@ public class FormAutomovel extends ViewFormBase {
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {
             
+            // Cria a model de folhas e guarda os valores da tela
+            ModelAutomoveis modelAutomoveis = new ModelAutomoveis();
+            modelAutomoveis.setOpcaoAutomoveis(grpOpcoes1.getSelection().getActionCommand());
+            modelAutomoveis.setOpcaoSairCarro(grpOpcoes2.getSelection().getActionCommand());
+            modelAutomoveis.setOpcaoTipoCombustivel(grpOpcoes3.getSelection().getActionCommand());
+            
             // Cria uma instância da nova tela a ser aberta
             FormEletronicos formEletronicos = new FormEletronicos(3);
+            
+            // Caso tenhamos o gerenciador de dados
+            if ( this.getGerenciadorDados() != null ) {
+                
+                // Guarda o modelo nele e passa para a próxima tela
+                this.getGerenciadorDados().setModelAutomoveis(modelAutomoveis);
+                formEletronicos.setGerenciadorDados(this.getGerenciadorDados());
+            }
 
             // Seta que ela deve ser visível
             formEletronicos.setVisible(true);

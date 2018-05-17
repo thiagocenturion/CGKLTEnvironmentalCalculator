@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Classes.GerenciadorDados;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -19,6 +20,18 @@ public class ViewFormBase extends javax.swing.JFrame {
      * Esta propriedade fornece qual a página atual do form
      */
     protected int iPagAtual;
+    
+    /**
+     * Esta propriedade fornece o gerenciador de modelos
+     */
+    private GerenciadorDados gerenciadorDados;
+
+    public GerenciadorDados getGerenciadorDados() {
+        return gerenciadorDados;
+    }
+    public void setGerenciadorDados(GerenciadorDados gerenciadorDados) {
+        this.gerenciadorDados = gerenciadorDados;
+    }
     
     /**
      * Creates new form ViewFormBase
@@ -152,11 +165,11 @@ public class ViewFormBase extends javax.swing.JFrame {
         grpOpcoes3 = new javax.swing.ButtonGroup();
         pnlDashboard = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        lblPag1 = new ClassesPadroes.LabelAtiva();
-        lblPag2 = new ClassesPadroes.LabelAtiva();
-        lblPag3 = new ClassesPadroes.LabelAtiva();
-        lblPag4 = new ClassesPadroes.LabelAtiva();
-        lblPag5 = new ClassesPadroes.LabelAtiva();
+        lblPag1 = new ControlesTela.LabelAtiva();
+        lblPag2 = new ControlesTela.LabelAtiva();
+        lblPag3 = new ControlesTela.LabelAtiva();
+        lblPag4 = new ControlesTela.LabelAtiva();
+        lblPag5 = new ControlesTela.LabelAtiva();
         lblIcon = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lblTitulo = new javax.swing.JLabel();
@@ -315,6 +328,7 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao1A.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao1A.setSelected(true);
         btnOpcao1A.setText("Todas");
+        btnOpcao1A.setToolTipText("");
         btnOpcao1A.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao1AActionPerformed(evt);
@@ -594,9 +608,9 @@ public class ViewFormBase extends javax.swing.JFrame {
     protected javax.swing.JRadioButton btnOpcao3A;
     protected javax.swing.JRadioButton btnOpcao3B;
     protected javax.swing.JRadioButton btnOpcao3C;
-    private javax.swing.ButtonGroup grpOpcoes1;
-    private javax.swing.ButtonGroup grpOpcoes2;
-    private javax.swing.ButtonGroup grpOpcoes3;
+    protected javax.swing.ButtonGroup grpOpcoes1;
+    protected javax.swing.ButtonGroup grpOpcoes2;
+    protected javax.swing.ButtonGroup grpOpcoes3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -604,11 +618,11 @@ public class ViewFormBase extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     protected javax.swing.JLabel lblDescricao;
     protected javax.swing.JLabel lblIcon;
-    protected ClassesPadroes.LabelAtiva lblPag1;
-    protected ClassesPadroes.LabelAtiva lblPag2;
-    protected ClassesPadroes.LabelAtiva lblPag3;
-    protected ClassesPadroes.LabelAtiva lblPag4;
-    protected ClassesPadroes.LabelAtiva lblPag5;
+    protected ControlesTela.LabelAtiva lblPag1;
+    protected ControlesTela.LabelAtiva lblPag2;
+    protected ControlesTela.LabelAtiva lblPag3;
+    protected ControlesTela.LabelAtiva lblPag4;
+    protected ControlesTela.LabelAtiva lblPag5;
     protected javax.swing.JLabel lblPerg1;
     protected javax.swing.JLabel lblPerg2;
     protected javax.swing.JLabel lblPerg3;

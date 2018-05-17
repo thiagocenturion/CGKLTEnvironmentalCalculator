@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Classes.GerenciadorDados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -128,6 +129,9 @@ public class viewInicio extends javax.swing.JFrame {
         // Cria uma instância da nova tela a ser aberta
 	FormFolha frmFolha = new FormFolha(1);
 
+        // Cria um gerenciador de dados vazio e seta na outra tela para começar a armazenar
+        frmFolha.setGerenciadorDados( new GerenciadorDados() );
+        
 	// Seta que ela deve ser visível
 	frmFolha.setVisible(true);
 
