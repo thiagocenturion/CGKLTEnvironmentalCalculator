@@ -5,6 +5,8 @@
  */
 package Views;
 
+import Classes.ModelAutomoveis;
+import Classes.ModelRoupas;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -66,8 +68,22 @@ public class FormRoupa extends ViewFormBase {
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {
             
+            // Cria a model de folhas e guarda os valores da tela
+            ModelRoupas modelRoupas = new ModelRoupas();
+            //modelRoupas.setOpcaoAutomoveis(grpOpcoes1.getSelection().getActionCommand());
+            //modelRoupas.setOpcaoSairCarro(grpOpcoes2.getSelection().getActionCommand());
+            //modelRoupas.setOpcaoTipoCombustivel(grpOpcoes3.getSelection().getActionCommand());
+            
             // Cria uma instância da nova tela a ser aberta
-            FormAlimento formAlimentos = new FormAlimento(5);
+            FormAlimento formAlimentos = new FormAlimento(3);
+            
+            // Caso tenhamos o gerenciador de dados
+            if ( this.getGerenciadorDados() != null ) {
+                
+                // Guarda o modelo nele e passa para a próxima tela
+                this.getGerenciadorDados().setModelRoupas(modelRoupas);
+                formAlimentos.setGerenciadorDados(this.getGerenciadorDados());
+            }
 
             // Seta que ela deve ser visível
             formAlimentos.setVisible(true);

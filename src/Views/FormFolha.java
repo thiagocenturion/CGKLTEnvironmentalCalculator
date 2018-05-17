@@ -8,6 +8,7 @@ package Views;
 import Classes.ModelFolhas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 
 /**
@@ -70,6 +71,8 @@ public class FormFolha extends ViewFormBase {
             
             // Cria a model de folhas e guarda os valores da tela
             ModelFolhas modelFolhas = new ModelFolhas();
+            
+            // TODO: Debugar e descobrir o porque de estar retornando nulo no getActionCommand
             modelFolhas.setOpcaoFaturas(grpOpcoes1.getSelection().getActionCommand());
             modelFolhas.setOpcaoSegundaVia(grpOpcoes2.getSelection().getActionCommand());
             modelFolhas.setOpcaoCadernos(grpOpcoes3.getSelection().getActionCommand());

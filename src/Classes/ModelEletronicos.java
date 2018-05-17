@@ -12,5 +12,4 @@ package Classes;
 public class ModelEletronicos {
     
     private Resposta respQtdeCelulares;
-    
 }
