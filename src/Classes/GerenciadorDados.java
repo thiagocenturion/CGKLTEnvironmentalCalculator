@@ -13,6 +13,33 @@ public class GerenciadorDados {
     
     private ModelFolhas modelFolhas;
     private ModelAutomoveis modelAutomoveis;
+    private ModelEletronicos modelEletronicos;
+    private ModelRoupas modelRoupas;
+    private ModelAlimentos modelAlimentos;
+
+    public ModelEletronicos getModelEletronicos() {
+        return modelEletronicos;
+    }
+
+    public void setModelEletronicos(ModelEletronicos modelEletronicos) {
+        this.modelEletronicos = modelEletronicos;
+    }
+
+    public ModelRoupas getModelRoupas() {
+        return modelRoupas;
+    }
+
+    public void setModelRoupas(ModelRoupas modelRoupas) {
+        this.modelRoupas = modelRoupas;
+    }
+
+    public ModelAlimentos getModelAlimentos() {
+        return modelAlimentos;
+    }
+
+    public void setModelAlimentos(ModelAlimentos modelAlimentos) {
+        this.modelAlimentos = modelAlimentos;
+    }
 
     public ModelFolhas getModelFolhas() {
         return modelFolhas;
