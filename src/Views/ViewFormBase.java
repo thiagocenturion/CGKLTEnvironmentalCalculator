@@ -150,6 +150,32 @@ public class ViewFormBase extends javax.swing.JFrame {
                 break;
         }
     }
+    
+    protected int getSelecionado(int iQuestao) {
+        
+        int iRetorno = 0;
+        
+        // Obtem a resposta atual selecionada da questao dada por parametro. 
+        // Se a questão não existir, retorna 0.
+        switch (iQuestao) {
+            case 1:
+                // Pega o comando de ação do botao selecionado referente à questão 1
+                iRetorno = Integer.parseInt(grpOpcoes1.getSelection().getActionCommand());
+                break;
+            case 2:
+                // Pega o comando de ação do botao selecionado referente à questão 2
+                iRetorno = Integer.parseInt(grpOpcoes2.getSelection().getActionCommand());
+                break;
+            case 3:
+                // Pega o comando de ação do botao selecionado referente à questão 3
+                iRetorno = Integer.parseInt(grpOpcoes3.getSelection().getActionCommand());
+                break;
+            default:
+                break;
+        }
+        
+        return iRetorno;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -329,6 +355,7 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao1A.setSelected(true);
         btnOpcao1A.setText("Todas");
         btnOpcao1A.setToolTipText("");
+        btnOpcao1A.setActionCommand("1");
         btnOpcao1A.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao1AActionPerformed(evt);
@@ -339,11 +366,18 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao1C.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         btnOpcao1C.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao1C.setText("Nenhuma");
+        btnOpcao1C.setActionCommand("3");
 
         grpOpcoes1.add(btnOpcao1B);
         btnOpcao1B.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         btnOpcao1B.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao1B.setText("Algumas");
+        btnOpcao1B.setActionCommand("2");
+        btnOpcao1B.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpcao1BActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlForm1Layout = new javax.swing.GroupLayout(pnlForm1);
         pnlForm1.setLayout(pnlForm1Layout);
@@ -392,6 +426,7 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao3A.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao3A.setSelected(true);
         btnOpcao3A.setText("1 a 2 cadernos");
+        btnOpcao3A.setActionCommand("1");
         btnOpcao3A.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao3AActionPerformed(evt);
@@ -402,11 +437,13 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao3C.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         btnOpcao3C.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao3C.setText("5 ou mais");
+        btnOpcao3C.setActionCommand("3");
 
         grpOpcoes3.add(btnOpcao3B);
         btnOpcao3B.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         btnOpcao3B.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao3B.setText("3 a 4 cadernos");
+        btnOpcao3B.setActionCommand("2");
 
         javax.swing.GroupLayout pnlForm3Layout = new javax.swing.GroupLayout(pnlForm3);
         pnlForm3.setLayout(pnlForm3Layout);
@@ -455,6 +492,7 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao2A.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao2A.setSelected(true);
         btnOpcao2A.setText("Sim");
+        btnOpcao2A.setActionCommand("1");
         btnOpcao2A.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao2AActionPerformed(evt);
@@ -465,6 +503,7 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao2C.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         btnOpcao2C.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao2C.setText("Não sei");
+        btnOpcao2C.setActionCommand("3");
         btnOpcao2C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao2CActionPerformed(evt);
@@ -475,6 +514,7 @@ public class ViewFormBase extends javax.swing.JFrame {
         btnOpcao2B.setFont(new java.awt.Font("Myriad Pro", 0, 14)); // NOI18N
         btnOpcao2B.setForeground(new java.awt.Color(51, 51, 51));
         btnOpcao2B.setText("Não");
+        btnOpcao2B.setActionCommand("2");
         btnOpcao2B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOpcao2BActionPerformed(evt);
@@ -565,15 +605,7 @@ public class ViewFormBase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-
-//        // Cria uma instância da nova tela a ser aberta
-//        FormFolha frmFolha = new FormFolha(1);
-//
-//        // Seta que ela deve ser visível
-//        frmFolha.setVisible(true);
-//
-//        // Seta que ESTA tela não deve ser mais visível
-//        this.setVisible(false);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void btnOpcao1AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao1AActionPerformed
@@ -596,6 +628,10 @@ public class ViewFormBase extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOpcao2CActionPerformed
 
+    private void btnOpcao1BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcao1BActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOpcao1BActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton btnContinuar;
@@ -608,9 +644,9 @@ public class ViewFormBase extends javax.swing.JFrame {
     protected javax.swing.JRadioButton btnOpcao3A;
     protected javax.swing.JRadioButton btnOpcao3B;
     protected javax.swing.JRadioButton btnOpcao3C;
-    protected javax.swing.ButtonGroup grpOpcoes1;
-    protected javax.swing.ButtonGroup grpOpcoes2;
-    protected javax.swing.ButtonGroup grpOpcoes3;
+    private javax.swing.ButtonGroup grpOpcoes1;
+    private javax.swing.ButtonGroup grpOpcoes2;
+    private javax.swing.ButtonGroup grpOpcoes3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

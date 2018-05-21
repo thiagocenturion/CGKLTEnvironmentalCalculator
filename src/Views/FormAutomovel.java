@@ -53,7 +53,7 @@ public class FormAutomovel extends ViewFormBase {
         this.btnOpcao1C.setText("Mais que 3 automóveis");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Você usa o carro para ir trabalhar ou só para sair nos finais de semana?</p></HTML>");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Se você tivesse ou possui carro, o usaria para ir trabalhar ou só para sair nos finais de semana?</p></HTML>");
         this.btnOpcao2A.setText("Só para ir trabalhar");
         this.btnOpcao2B.setText("Só para sair socialmente");
         this.btnOpcao2C.setText("Trabalhar e sair socialmente");
@@ -67,11 +67,11 @@ public class FormAutomovel extends ViewFormBase {
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {
             
-            // Cria a model de folhas e guarda os valores da tela
+            // Cria a model de automoveis e guarda os valores da tela
             ModelAutomoveis modelAutomoveis = new ModelAutomoveis();
-            modelAutomoveis.setOpcaoAutomoveis(grpOpcoes1.getSelection().getActionCommand());
-            modelAutomoveis.setOpcaoSairCarro(grpOpcoes2.getSelection().getActionCommand());
-            modelAutomoveis.setOpcaoTipoCombustivel(grpOpcoes3.getSelection().getActionCommand());
+            modelAutomoveis.setOpcaoAutomoveis(super.getSelecionado(1));
+            modelAutomoveis.setOpcaoSairCarro(super.getSelecionado(2));
+            modelAutomoveis.setOpcaoTipoCombustivel(super.getSelecionado(3));
             
             // Cria uma instância da nova tela a ser aberta
             FormEletronicos formEletronicos = new FormEletronicos(3);

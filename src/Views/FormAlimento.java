@@ -40,13 +40,13 @@ public class FormAlimento extends ViewFormBase {
         
         // Descrição é configurada em HTML para ter o efeito 'word wrap', o que torna a label multi-linhas
         // com alinhamento justificado na tag <p></p>
-        this.lblDescricao.setText("<HTML><p align=\"justify\">A utilização da folha está intrinscamente ligada ao nosso cotidiano de maneira direta e indireta. Consequentemente, são gastos 10 litros d’água e 0,013% de uma árvore de Eucalipto para a produção de 1 folha A4.</p></HTML>");
+        this.lblDescricao.setText("<HTML><p align=\"justify\">A alimentação faz parte da essência da dieta do ser humano. Entretanto, pouco é o acesso ao conhecimento dos valores impactantes ao meio ambiente quanto à produção de cada um deles.</p></HTML>");
         
         // Icone que acompanha o titulo e descricao da página
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconAlimentos.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Com qual frequencia você come carne?</p></HTML>");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Com qual frequencia você come carne bovina?</p></HTML>");
         this.btnOpcao1A.setText("Todos os dias");
         this.btnOpcao1B.setText("Algumas vezes na semana");
         this.btnOpcao1C.setText("Raramente");

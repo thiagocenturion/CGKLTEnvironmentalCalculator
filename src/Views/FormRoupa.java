@@ -70,12 +70,12 @@ public class FormRoupa extends ViewFormBase {
             
             // Cria a model de folhas e guarda os valores da tela
             ModelRoupas modelRoupas = new ModelRoupas();
-            //modelRoupas.setOpcaoAutomoveis(grpOpcoes1.getSelection().getActionCommand());
-            //modelRoupas.setOpcaoSairCarro(grpOpcoes2.getSelection().getActionCommand());
-            //modelRoupas.setOpcaoTipoCombustivel(grpOpcoes3.getSelection().getActionCommand());
+            modelRoupas.setOpcaoJeans(super.getSelecionado(1));
+            modelRoupas.setQtdeSustentaveis(super.getSelecionado(2));
+            modelRoupas.setFrequenciaCompraRoupas(super.getSelecionado(3));
             
             // Cria uma instância da nova tela a ser aberta
-            FormAlimento formAlimentos = new FormAlimento(3);
+            FormAlimento formAlimentos = new FormAlimento(5);
             
             // Caso tenhamos o gerenciador de dados
             if ( this.getGerenciadorDados() != null ) {

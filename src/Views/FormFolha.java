@@ -71,11 +71,9 @@ public class FormFolha extends ViewFormBase {
             
             // Cria a model de folhas e guarda os valores da tela
             ModelFolhas modelFolhas = new ModelFolhas();
-            
-            // TODO: Debugar e descobrir o porque de estar retornando nulo no getActionCommand
-            modelFolhas.setOpcaoFaturas(grpOpcoes1.getSelection().getActionCommand());
-            modelFolhas.setOpcaoSegundaVia(grpOpcoes2.getSelection().getActionCommand());
-            modelFolhas.setOpcaoCadernos(grpOpcoes3.getSelection().getActionCommand());
+            modelFolhas.setOpcaoFaturas(super.getSelecionado(1));
+            modelFolhas.setOpcaoSegundaVia(super.getSelecionado(2));
+            modelFolhas.setOpcaoCadernos(super.getSelecionado(3));
             
             // Cria uma instância da nova tela a ser aberta
             FormAutomovel formAutomoveis = new FormAutomovel(2);

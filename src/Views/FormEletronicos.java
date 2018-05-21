@@ -41,7 +41,7 @@ public class FormEletronicos extends ViewFormBase {
         
         // Descrição é configurada em HTML para ter o efeito 'word wrap', o que torna a label multi-linhas
         // com alinhamento justificado na tag <p></p>
-        this.lblDescricao.setText("<HTML><p align=\"justify\">A utilização da folha está intrinscamente ligada ao nosso cotidiano de maneira direta e indireta. Consequentemente, são gastos 10 litros d’água e 0,013% de uma árvore de Eucalipto para a produção de 1 folha A4.</p></HTML>");
+        this.lblDescricao.setText("<HTML><p align=\"justify\">O eletrônico, como smartphone, computador ou tablet, se tornou uma parte importante na troca de informações. Por conta disso, ele tem sido muito importante para as pessoas. O que muitos não sabem é que um simples aparelho, como esse, pode causar um enorme prejuízo ao meio ambiente.</p></HTML>");
         
         // Icone que acompanha o titulo e descricao da página
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconEletronicos.png")) );
@@ -53,10 +53,10 @@ public class FormEletronicos extends ViewFormBase {
         this.btnOpcao1C.setText("4 ou mais");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
-        this.btnOpcao2A.setText("Sim");
-        this.btnOpcao2B.setText("Não");
-        this.btnOpcao2C.setText("Não sei");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Quantos computadores já existiram em sua casa?</p></HTML>");
+        this.btnOpcao2A.setText("Nenhum ou 1 computador");
+        this.btnOpcao2B.setText("2 a 4 computadores");
+        this.btnOpcao2C.setText("5 computadores ou mais");
         
         // Configura terceira questão da página
         this.lblPerg3.setText("<HTML><p align=\"justify\">Quantos cadernos tem em sua casa?</p></HTML>");
@@ -69,12 +69,12 @@ public class FormEletronicos extends ViewFormBase {
             
             // Cria a model de folhas e guarda os valores da tela
             ModelEletronicos modelEletronicos = new ModelEletronicos();
-            // modelEletronicos.setOpcaoAutomoveis(grpOpcoes1.getSelection().getActionCommand());
-            // modelEletronicos.setOpcaoSairCarro(grpOpcoes2.getSelection().getActionCommand());
+             modelEletronicos.setOpcaoQtdeCelulares(super.getSelecionado(1));
+             modelEletronicos.setOpcaoQtdeComputadores(super.getSelecionado(2));
             // modelEletronicos.setOpcaoTipoCombustivel(grpOpcoes3.getSelection().getActionCommand());
             
             // Cria uma instância da nova tela a ser aberta
-            FormRoupa formRoupas = new FormRoupa(3);
+            FormRoupa formRoupas = new FormRoupa(4);
             
             // Caso tenhamos o gerenciador de dados
             if ( this.getGerenciadorDados() != null ) {
