@@ -5,6 +5,7 @@
  */
 package ViewControllers;
 
+import Classes.GerenciadorDados;
 import Models.ModelFolhas;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -73,16 +74,11 @@ public class FormFolha extends ViewFormBase {
             modelFolhas.setOpcaoSegundaVia(super.getSelecionado(2));
             modelFolhas.setOpcaoCadernos(super.getSelecionado(3));
             
+            // Armazena o modelo em um array list estático na memória
+            GerenciadorDados.getModels().add(modelFolhas);
+            
             // Cria uma instância da nova tela a ser aberta
             FormAutomovel formAutomoveis = new FormAutomovel(2);
-            
-            // Caso tenhamos o gerenciador de dados
-            if ( this.getGerenciadorDados() != null ) {
-                
-                // Guarda o modelo de folhas nele e passa para a próxima tela
-                this.getGerenciadorDados().setModelFolhas(modelFolhas);
-                formAutomoveis.setGerenciadorDados(this.getGerenciadorDados());
-            }
             
             // Seta que ela deve ser visível
             formAutomoveis.setVisible(true);

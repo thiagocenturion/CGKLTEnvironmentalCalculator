@@ -5,6 +5,7 @@
  */
 package ViewControllers;
 
+import Classes.GerenciadorDados;
 import Models.ModelAutomoveis;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -73,16 +74,11 @@ public class FormAutomovel extends ViewFormBase {
             modelAutomoveis.setOpcaoSairCarro(super.getSelecionado(2));
             modelAutomoveis.setOpcaoTipoCombustivel(super.getSelecionado(3));
             
+            // Armazena o modelo em um array list estático na memória
+            GerenciadorDados.getModels().add(modelAutomoveis);
+            
             // Cria uma instância da nova tela a ser aberta
             FormEletronicos formEletronicos = new FormEletronicos(3);
-            
-            // Caso tenhamos o gerenciador de dados
-            if ( this.getGerenciadorDados() != null ) {
-                
-                // Guarda o modelo nele e passa para a próxima tela
-                this.getGerenciadorDados().setModelAutomoveis(modelAutomoveis);
-                formEletronicos.setGerenciadorDados(this.getGerenciadorDados());
-            }
 
             // Seta que ela deve ser visível
             formEletronicos.setVisible(true);

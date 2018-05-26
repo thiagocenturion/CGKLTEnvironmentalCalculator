@@ -5,6 +5,7 @@
  */
 package ViewControllers;
 
+import Classes.GerenciadorDados;
 import Models.ModelAlimentos;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -74,17 +75,12 @@ public class FormAlimento extends ViewFormBase {
             modelAlimentos.setMassaCarne(super.getSelecionado(1));
             modelAlimentos.setFreqRefeicaoCarne(super.getSelecionado(2));
 //            modelAlimentos.setOpcaoTipoCombustivel(super.getSelecionado(3));
+
+            // Armazena o modelo em um array list estático na memória
+            GerenciadorDados.getModels().add(modelAlimentos);
             
             // Cria uma instância da tela final
             ViewFinal viewFinal = new ViewFinal();
-            
-            // Caso tenhamos o gerenciador de dados
-            if ( this.getGerenciadorDados() != null ) {
-                
-                // Guarda o modelo nele e passa para a próxima tela
-                this.getGerenciadorDados().setModelAlimentos(modelAlimentos);
-                viewFinal.setGerenciadorDados(this.getGerenciadorDados());
-            }
 
             // Seta que ela deve ser visível
             viewFinal.setVisible(true);

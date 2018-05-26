@@ -8,6 +8,7 @@ package ViewControllers;
 import Classes.GerenciadorDados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,10 +20,21 @@ public class viewInicio extends javax.swing.JFrame {
      * Creates new form viewInicio
      */
     public viewInicio() {
-        initComponents();
         
-        // Inicia as configurações dos controles de tela
-        iniciaControles();
+        try {
+            
+            initComponents();
+
+            // Inicia as configurações dos controles de tela
+            iniciaControles();
+        }
+        catch(Exception e) {
+            
+            // Mostra na tela um alerta informando do erro e imprime no console qual foi o erro
+            JOptionPane.showMessageDialog(null, "Houve algum erro. Tente novamente!");
+            System.err.println("Erro gerado:\n");
+            System.err.println(e.getMessage());
+        }
     }
     
     private void iniciaControles() {
@@ -32,7 +44,7 @@ public class viewInicio extends javax.swing.JFrame {
         
         // Descrição é configurada em HTML para ter o efeito 'word wrap', o que torna a label multi-linhas
         // com alinhamento justificado na tag <p></p>
-        this.lblDescricao.setText("<HTML><p align=\"center\">Você será submetido a uma análise aprofundada de conhecimento e aprendizagem que será capaz de pontuar e classificar o seu nível como consumidor, com embasamento lógico desenvolvido na aplicação.</p></HTML>");
+        this.lblDescricao.setText("<HTML><p align=\"center\">Descubra se você é um consumidor consciente quando trata-se de suas ações e impactos diretos/indiretos ao meio ambiente.<br><br>Você será submetido a uma análise aprofundada de conhecimentos e dicas, na qual mostrará um resultado com base na sua pontuação, que definirá o perfil de consumir que és.</p></HTML>");
         
         // Esta operação faz com que o Form apareça no centro da tela
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -118,17 +130,24 @@ public class viewInicio extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         
-        // Cria uma instância da nova tela a ser aberta
-	FormFolha frmFolha = new FormFolha(1);
-
-        // Cria um gerenciador de dados vazio e seta na outra tela para começar a armazenar
-        frmFolha.setGerenciadorDados( new GerenciadorDados() );
+        try {
         
-	// Seta que ela deve ser visível
-	frmFolha.setVisible(true);
+            // Cria uma instância da nova tela a ser aberta
+            FormFolha frmFolha = new FormFolha(1);
 
-	// Seta que ESTA tela não deve ser mais visível
-	this.setVisible(false);
+            // Seta que ela deve ser visível
+            frmFolha.setVisible(true);
+
+            // Seta que ESTA tela não deve ser mais visível
+            this.setVisible(false);
+        }
+        catch(Exception e) {
+            
+            // Mostra na tela um alerta informando do erro e imprime no console qual foi o erro
+            JOptionPane.showMessageDialog(null, "Houve algum erro. Tente novamente!");
+            System.err.println("Erro gerado:\n");
+            System.err.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**

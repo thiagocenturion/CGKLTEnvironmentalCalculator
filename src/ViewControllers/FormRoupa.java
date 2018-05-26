@@ -5,6 +5,7 @@
  */
 package ViewControllers;
 
+import Classes.GerenciadorDados;
 import Models.ModelRoupas;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -76,13 +77,8 @@ public class FormRoupa extends ViewFormBase {
             // Cria uma instância da nova tela a ser aberta
             FormAlimento formAlimentos = new FormAlimento(5);
             
-            // Caso tenhamos o gerenciador de dados
-            if ( this.getGerenciadorDados() != null ) {
-                
-                // Guarda o modelo nele e passa para a próxima tela
-                this.getGerenciadorDados().setModelRoupas(modelRoupas);
-                formAlimentos.setGerenciadorDados(this.getGerenciadorDados());
-            }
+            // Armazena o modelo em um array list estático na memória
+            GerenciadorDados.getModels().add(modelRoupas);
 
             // Seta que ela deve ser visível
             formAlimentos.setVisible(true);

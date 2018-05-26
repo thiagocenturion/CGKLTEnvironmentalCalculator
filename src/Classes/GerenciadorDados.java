@@ -5,11 +5,7 @@
  */
 package Classes;
 
-import Models.ModelFolhas;
-import Models.ModelAutomoveis;
-import Models.ModelEletronicos;
-import Models.ModelRoupas;
-import Models.ModelAlimentos;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,50 +13,25 @@ import Models.ModelAlimentos;
  */
 public class GerenciadorDados {
     
-    private ModelFolhas modelFolhas;
-    private ModelAutomoveis modelAutomoveis;
-    private ModelEletronicos modelEletronicos;
-    private ModelRoupas modelRoupas;
-    private ModelAlimentos modelAlimentos;
-
-    public ModelEletronicos getModelEletronicos() {
-        return modelEletronicos;
-    }
-
-    public void setModelEletronicos(ModelEletronicos modelEletronicos) {
-        this.modelEletronicos = modelEletronicos;
-    }
-
-    public ModelRoupas getModelRoupas() {
-        return modelRoupas;
-    }
-
-    public void setModelRoupas(ModelRoupas modelRoupas) {
-        this.modelRoupas = modelRoupas;
-    }
-
-    public ModelAlimentos getModelAlimentos() {
-        return modelAlimentos;
-    }
-
-    public void setModelAlimentos(ModelAlimentos modelAlimentos) {
-        this.modelAlimentos = modelAlimentos;
-    }
-
-    public ModelFolhas getModelFolhas() {
-        return modelFolhas;
-    }
-
-    public void setModelFolhas(ModelFolhas modelFolhas) {
-        this.modelFolhas = modelFolhas;
-    }
-
-    public ModelAutomoveis getModelAutomoveis() {
-        return modelAutomoveis;
-    }
-
-    public void setModelAutomoveis(ModelAutomoveis modelAutomoveis) {
-        this.modelAutomoveis = modelAutomoveis;
+    /**
+     * Variável estática armazenada na memória para
+     * gerenciar os dados de uma tela para outra
+     */
+    static private ArrayList arrModels;
+    
+    public static void setModels(ArrayList arrNewModels) {
+        arrModels = arrNewModels;
     }
     
+    public static ArrayList getModels() {
+        
+        // Inicialização do tipo "folgada" (lazy initialization)
+        if (arrModels == null) {
+            
+            // Caso ainda não exista o modelo, cria sua instância
+            arrModels = new ArrayList();
+        }
+        
+        return arrModels;
+    }
 }

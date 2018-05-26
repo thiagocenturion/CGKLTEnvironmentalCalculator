@@ -9,6 +9,7 @@ import Classes.GerenciadorDados;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,18 +23,6 @@ public class ViewFormBase extends javax.swing.JFrame {
     protected int iPagAtual;
     
     /**
-     * Esta propriedade fornece o gerenciador de modelos
-     */
-    private GerenciadorDados gerenciadorDados;
-
-    public GerenciadorDados getGerenciadorDados() {
-        return gerenciadorDados;
-    }
-    public void setGerenciadorDados(GerenciadorDados gerenciadorDados) {
-        this.gerenciadorDados = gerenciadorDados;
-    }
-    
-    /**
      * Creates new form ViewFormBase
      */
     public ViewFormBase() {
@@ -44,15 +33,25 @@ public class ViewFormBase extends javax.swing.JFrame {
     
     public ViewFormBase( int iPagAtual ) {
         
-        // Inicia os componentes de tela
-        initComponents();
+        try {
         
-        // Armazena a página atual a qual se remete a ordem na lista de formularios
-        //desta view
-        this.iPagAtual = iPagAtual;
-        
-        // Inicia os controles customizados
-        iniciaControles();
+            // Inicia os componentes de tela
+            initComponents();
+
+            // Armazena a página atual a qual se remete a ordem na lista de formularios
+            //desta view
+            this.iPagAtual = iPagAtual;
+
+            // Inicia os controles customizados
+            iniciaControles();
+        }
+        catch(Exception e) {
+            
+            // Mostra na tela um alerta informando do erro e imprime no console qual foi o erro
+            JOptionPane.showMessageDialog(null, "Houve algum erro. Tente novamente!");
+            System.err.println("Erro gerado:\n");
+            System.err.println(e.getMessage());
+        }
     }
     
     private void iniciaControles() {

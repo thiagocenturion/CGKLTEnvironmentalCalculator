@@ -8,6 +8,7 @@ package ViewControllers;
 import Classes.GerenciadorDados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,10 +32,21 @@ public class ViewFinal extends javax.swing.JFrame {
      * Creates new form ViewFinal
      */
     public ViewFinal() {
-        initComponents();
         
-        // Inicia os controles customizados
-        iniciaControles();
+        try {
+            
+            initComponents();
+
+            // Inicia os controles customizados
+            iniciaControles();
+        }
+        catch(Exception e) {
+            
+            // Mostra na tela um alerta informando do erro e imprime no console qual foi o erro
+            JOptionPane.showMessageDialog(null, "Houve algum erro. Tente novamente!");
+            System.err.println("Erro gerado:\n");
+            System.err.println(e.getMessage());
+        }
     }
     
     private void iniciaControles() {

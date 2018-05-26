@@ -5,6 +5,7 @@
  */
 package ViewControllers;
 
+import Classes.GerenciadorDados;
 import Models.ModelEletronicos;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
@@ -69,20 +70,15 @@ public class FormEletronicos extends ViewFormBase {
             
             // Cria a model de folhas e guarda os valores da tela
             ModelEletronicos modelEletronicos = new ModelEletronicos();
-             modelEletronicos.setOpcaoQtdeCelulares(super.getSelecionado(1));
-             modelEletronicos.setOpcaoQtdeComputadores(super.getSelecionado(2));
-             modelEletronicos.setOpcaoQtdeEletronicos(super.getSelecionado(3));
+            modelEletronicos.setOpcaoQtdeCelulares(super.getSelecionado(1));
+            modelEletronicos.setOpcaoQtdeComputadores(super.getSelecionado(2));
+            modelEletronicos.setOpcaoQtdeEletronicos(super.getSelecionado(3));
+             
+            // Armazena o modelo em um array list estático na memória
+            GerenciadorDados.getModels().add(modelEletronicos);
             
             // Cria uma instância da nova tela a ser aberta
             FormRoupa formRoupas = new FormRoupa(4);
-            
-            // Caso tenhamos o gerenciador de dados
-            if ( this.getGerenciadorDados() != null ) {
-                
-                // Guarda o modelo nele e passa para a próxima tela
-                this.getGerenciadorDados().setModelEletronicos(modelEletronicos);
-                formRoupas.setGerenciadorDados(this.getGerenciadorDados());
-            }
 
             // Seta que ela deve ser visível
             formRoupas.setVisible(true);
