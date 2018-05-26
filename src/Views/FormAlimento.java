@@ -47,10 +47,10 @@ public class FormAlimento extends ViewFormBase {
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconAlimentos.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Para cada refeição, quantas gramas de carne você ingere, em média?</p></HTML>");
-        this.btnOpcao1A.setText("Nada ou em pequena massa (aproximadamente 110g)");
-        this.btnOpcao1B.setText("Média massa (aproximadamente 220g)");
-        this.btnOpcao1C.setText("Grande massa (aproximadamente 440g)");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Para cada refeição, quanto de massa de carne você ingere, em média?</p></HTML>");
+        this.btnOpcao1A.setText("Nada ou pouco (aprox. 110g)");
+        this.btnOpcao1B.setText("Médio (aprox. 220g)");
+        this.btnOpcao1C.setText("Muito (aprox. 440g)");
         
         // Configura segunda questão da página
         this.lblPerg2.setText("<HTML><p align=\"justify\">Quantos dias da semana você realiza uma refeição com carne?</p></HTML>");
