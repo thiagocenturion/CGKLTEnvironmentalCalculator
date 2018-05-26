@@ -4,14 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormAlimento.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormEletronicos.java</file>
             <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormAutomovel.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormFolha.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelAutomoveis.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelEletronicos.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelAlimentos.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelRoupas.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormRoupa.java</file>
+            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/ViewFinal.java</file>
+            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/ViewFormBase.java</file>
         </group>
     </open-files>
 </project-private>
