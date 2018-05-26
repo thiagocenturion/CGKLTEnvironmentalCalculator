@@ -13,6 +13,7 @@ public class ModelEletronicos {
     
     private Resposta respQtdeCelulares;
     private Resposta respQtdeComputadores;
+    private Resposta respQtdeEletronicos;
 
     public Resposta getRespQtdeCelulares() {
         return respQtdeCelulares;
@@ -22,6 +23,10 @@ public class ModelEletronicos {
         return respQtdeComputadores;
     }
     
+    public Resposta getRespQtdeEletronicos() {
+        return respQtdeEletronicos;
+    }
+            
     /**
      * Quantidade medida em unidades.
      * REGRA ESPECÍFICA: Gás Carbonico 1 smarphone - 16 kg
@@ -62,6 +67,29 @@ public class ModelEletronicos {
                 break;
             case 3:
                 this.respQtdeComputadores = new Resposta(3, 6.0f);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    /**
+     * Quantidade medida em unidades.
+     * REGRA ESPECÍFICA: TODO
+     * REGRA GLOBAL (água): TODO
+     * @param iQtdeEletronicos Valor do radio button digitado
+     */
+    public void setOpcaoQtdeEletronicos(int iQtdeEletronicos) {
+        
+        switch (iQtdeEletronicos) {
+            case 1:
+                this.respQtdeComputadores = new Resposta(10, 3.5f);
+                break;
+            case 2:
+                this.respQtdeComputadores = new Resposta(6, 7.0f);
+                break;
+            case 3:
+                this.respQtdeComputadores = new Resposta(3, 10.0f);
                 break;
             default:
                 break;

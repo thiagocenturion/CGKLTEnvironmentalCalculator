@@ -28,7 +28,7 @@ public class ModelAutomoveis {
     
     /**
      * Quantidade medida em média entre as duas opções dadas dentro de uma mesma alternativa (exemplo: "3 a 5" a quantidade utilizada é 4).
-     * REGRA ESPECÍFICA: Vida util de 1 Automóvel - 361,1Kg de CO
+     * REGRA ESPECÍFICA: Vida util de 1 Automóvel - 361,1Kg de CO2
      * REGRA GLOBAL: Massa do automóvel x 13 litros de agua x quantidade = total de agua gasto
      * @param iAutomoveis Valor do radio button digitado
      */

@@ -47,21 +47,21 @@ public class FormAlimento extends ViewFormBase {
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconAlimentos.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Com qual frequencia você come carne bovina?</p></HTML>");
-        this.btnOpcao1A.setText("Todos os dias");
-        this.btnOpcao1B.setText("Algumas vezes na semana");
-        this.btnOpcao1C.setText("Raramente");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Para cada refeição, quantas gramas de carne você ingere, em média?</p></HTML>");
+        this.btnOpcao1A.setText("Nada ou em pequena massa (aproximadamente 110g)");
+        this.btnOpcao1B.setText("Média massa (aproximadamente 220g)");
+        this.btnOpcao1C.setText("Grande massa (aproximadamente 440g)");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Com qual frequencia você come frutas, legumes e verduras ? </p></HTML>");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Quantos dias da semana você realiza uma refeição com carne?</p></HTML>");
         this.btnOpcao2A.setText("Todos os dias");
         this.btnOpcao2B.setText("Algumas vezes na semana");
         this.btnOpcao2C.setText("Raramente");
         
         // Configura terceira questão da página
         this.lblPerg3.setText("<HTML><p align=\"justify\">Quantas vezes por dia costuma fazer refeição?</p></HTML>");
-        this.btnOpcao3A.setText("1 a 2 cadernos");
-        this.btnOpcao3B.setText("3 a 4 cadernos");
+        this.btnOpcao3A.setText("1 a 2");
+        this.btnOpcao3B.setText("3 a 4");
         this.btnOpcao3C.setText("5 ou mais");
         
         // Setup do texto apresentado no botão para 'finalizar' e ir para a tela final
@@ -71,8 +71,8 @@ public class FormAlimento extends ViewFormBase {
         this.btnContinuar.addActionListener((ActionEvent e) -> {
             // Cria a model de automoveis e guarda os valores da tela
             ModelAlimentos modelAlimentos = new ModelAlimentos();
-            modelAlimentos.setQtdeCarneBovina(super.getSelecionado(1));
-//            modelAlimentos.setOpcaoSairCarro(super.getSelecionado(2));
+            modelAlimentos.setMassaCarne(super.getSelecionado(1));
+            modelAlimentos.setFreqRefeicaoCarne(super.getSelecionado(2));
 //            modelAlimentos.setOpcaoTipoCombustivel(super.getSelecionado(3));
             
             // Cria uma instância da tela final

@@ -53,16 +53,16 @@ public class FormEletronicos extends ViewFormBase {
         this.btnOpcao1C.setText("4 ou mais");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Quantos computadores já existiram em sua casa?</p></HTML>");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Quantos computadores ou notebooks já existiram em sua casa?</p></HTML>");
         this.btnOpcao2A.setText("Nenhum ou 1 computador");
         this.btnOpcao2B.setText("2 a 4 computadores");
         this.btnOpcao2C.setText("5 computadores ou mais");
         
         // Configura terceira questão da página
-        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantos cadernos tem em sua casa?</p></HTML>");
-        this.btnOpcao3A.setText("1 a 2 cadernos");
-        this.btnOpcao3B.setText("3 a 4 cadernos");
-        this.btnOpcao3C.setText("5 ou mais");
+        this.lblPerg3.setText("<HTML><p align=\"justify\">Além dos eletrônicos acima, quantos outros você possui? (Ex: Câmera fotográfica, TV, video-game, etc)</p></HTML>");
+        this.btnOpcao3A.setText("2 a 5 eletrônicos");
+        this.btnOpcao3B.setText("6 a 8 eletrônicos");
+        this.btnOpcao3C.setText("9 ou mais");
         
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {
@@ -71,7 +71,7 @@ public class FormEletronicos extends ViewFormBase {
             ModelEletronicos modelEletronicos = new ModelEletronicos();
              modelEletronicos.setOpcaoQtdeCelulares(super.getSelecionado(1));
              modelEletronicos.setOpcaoQtdeComputadores(super.getSelecionado(2));
-            // modelEletronicos.setOpcaoTipoCombustivel(grpOpcoes3.getSelection().getActionCommand());
+             modelEletronicos.setOpcaoQtdeEletronicos(super.getSelecionado(3));
             
             // Cria uma instância da nova tela a ser aberta
             FormRoupa formRoupas = new FormRoupa(4);
