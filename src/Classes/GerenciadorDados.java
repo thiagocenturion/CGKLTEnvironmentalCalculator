@@ -5,6 +5,12 @@
  */
 package Classes;
 
+import Models.ModelFolhas;
+import Models.ModelAutomoveis;
+import Models.ModelEletronicos;
+import Models.ModelRoupas;
+import Models.ModelAlimentos;
+
 /**
  *
  * @author thiagocenturion

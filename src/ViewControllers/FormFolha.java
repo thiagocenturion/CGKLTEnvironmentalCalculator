@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Views;
+package ViewControllers;
 
-import Classes.ModelFolhas;
+import Models.ModelFolhas;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 
 /**

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Views;
+package ViewControllers;
 
-import Classes.ModelAutomoveis;
+import Models.ModelAutomoveis;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 

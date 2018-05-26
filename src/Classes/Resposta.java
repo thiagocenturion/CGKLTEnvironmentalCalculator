@@ -30,7 +30,7 @@ public class Resposta {
         this.pontuacao = pontuacao;
     }
     
-    Resposta(int iPontuacao, float fQtdeValor) {
+    public Resposta(int iPontuacao, float fQtdeValor) {
         super();
         
         this.quantidadeValor = fQtdeValor;
