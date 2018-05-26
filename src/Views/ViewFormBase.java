@@ -53,13 +53,6 @@ public class ViewFormBase extends javax.swing.JFrame {
         
         // Inicia os controles customizados
         iniciaControles();
-        
-        // Formata as propriedades das views da tela atual
-        formataView();
-    }
-    
-    private void formataView() {
-        //
     }
     
     private void iniciaControles() {

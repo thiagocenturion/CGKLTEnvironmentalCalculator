@@ -7,8 +7,10 @@
             <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormEletronicos.java</file>
             <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormAutomovel.java</file>
             <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormFolha.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/viewInicio.java</file>
-            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/ViewFormBase.java</file>
+            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelAutomoveis.java</file>
+            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelEletronicos.java</file>
+            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelAlimentos.java</file>
+            <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Classes/ModelRoupas.java</file>
             <file>file:/Users/thiagocenturion/NetBeansProjects/CGKLTEnvironmentalCalculator/src/Views/FormRoupa.java</file>
         </group>
     </open-files>

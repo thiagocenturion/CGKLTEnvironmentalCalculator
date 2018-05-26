@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Classes.ModelAlimentos;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
@@ -68,7 +69,31 @@ public class FormAlimento extends ViewFormBase {
         
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {
-            System.out.println("Teste!");
+            // Cria a model de automoveis e guarda os valores da tela
+            ModelAlimentos modelAlimentos = new ModelAlimentos();
+            modelAlimentos.setQtdeCarneBovina(super.getSelecionado(1));
+//            modelAlimentos.setOpcaoSairCarro(super.getSelecionado(2));
+//            modelAlimentos.setOpcaoTipoCombustivel(super.getSelecionado(3));
+            
+            // Cria uma instância da tela final
+            ViewFinal viewFinal = new ViewFinal();
+            
+            // Caso tenhamos o gerenciador de dados
+            if ( this.getGerenciadorDados() != null ) {
+                
+                // Guarda o modelo nele e passa para a próxima tela
+                this.getGerenciadorDados().setModelAlimentos(modelAlimentos);
+                viewFinal.setGerenciadorDados(this.getGerenciadorDados());
+            }
+
+            // Seta que ela deve ser visível
+            viewFinal.setVisible(true);
+
+            // Seta que ESTA tela não deve ser mais visível
+            this.setVisible(false);
+
+            // Para todas as telas secundárias, ou seja, que não são as principais, utilizar este método também
+            this.dispose();
         });
     }
     
