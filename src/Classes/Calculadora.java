@@ -76,6 +76,7 @@ public class Calculadora {
         this.pontuacao = 0;
         this.resultadoAgua = 0.0f;
         int iTotalPontuacao = 0;
+        float fAux = 0.0f;
         
         // Instancia do Map que obterá os resultados de saída
         this.mapSaidaResultados = new HashMap<>();
@@ -134,6 +135,37 @@ public class Calculadora {
             // A pontuação é em relação ao valor máximo possivel das questões, que é 30, e estamos trabalhando com arredondamento para armazenar em tipo de dado INT
             resultadoAux = new Resposta();
             resultadoAux.setPontuacao( (iPontuacaoTotalAux * 100) / 30 );
+            
+            /**
+            * Quantidade medida em Litros para cada 1h de percurso. Foi adotado como padrão que a pessoa possua um carro popular de motor 1.0.
+            * Multiplica esta quantidade pela quantidade de 'respSairCarro' antes de entrar na regra especifica.
+            */
+            fQuantidadeAux = modelAutomoveis.getRespTipoCombustivel().getQuantidadeValor();
+            
+            // Obtem-se os litros totais
+            fQuantidadeAux = fQuantidadeAux * modelAutomoveis.getRespSairCarro().getQuantidadeValor();
+            
+            // Regra Específica: Gasolina 2,55 KgCO2/L - Diesel 3,37 KgCO2/L - Etanol 0,55 KgCO2/L
+            // Obtem o valor total em Kg de CO2
+            // Se a pontuação é 10, significa que escolheu ETANOL
+            if ( modelAutomoveis.getRespTipoCombustivel().getPontuacao() == 10 ) {
+                fQuantidadeAux = fQuantidadeAux * 0.55f;
+            }
+            // Se a pontuação é 6, significa que escolheu GASOLINA
+            else if ( modelAutomoveis.getRespTipoCombustivel().getPontuacao() == 6 ) {
+                fQuantidadeAux = fQuantidadeAux * 2.55f;
+            }
+            // Se a pontuação é 3, significa que escolheu DIESEL
+            else if ( modelAutomoveis.getRespTipoCombustivel().getPontuacao() == 3 ) {
+                fQuantidadeAux = fQuantidadeAux * 3.37f;
+            }
+            
+            // Agora multiplica este valor pela quantidade de carros que ela possui
+            resultadoAux.setQuantidadeValor( fQuantidadeAux * modelAutomoveis.getRespQtdeAutomoveis().getQuantidadeValor() );
+            
+            // Calcula a regra global (água): 13 L / km
+            // Obtem a quantidade total de horas que a pessoa dirige e multiplica por uma média de 50 km/h, para cada carro que ela possui
+            this.resultadoAgua += modelAutomoveis.getRespSairCarro().getQuantidadeValor() * 50.0f * modelAutomoveis.getRespQtdeAutomoveis().getQuantidadeValor();
             
             // Adiciona o resultado dentro do map
             this.mapSaidaResultados.put(GerenciadorDados.AUTOMOVEIS, resultadoAux);
