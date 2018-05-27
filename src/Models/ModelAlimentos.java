@@ -66,17 +66,17 @@ public class ModelAlimentos {
             case 1:
                 // Todos os dias da semana: 7 dias de refeições
                 iDias = 7;
-                this.respMassaCarne = new Resposta(3, iDias * iRefeicoesDiarias);
+                this.respFreqRefeicaoCarne = new Resposta(3, iDias * iRefeicoesDiarias);
                 break;
             case 2:
                 // Algumas vezes na semana: média aproximada de 4 dias de refeições
                 iDias = 4;
-                this.respMassaCarne = new Resposta(6, iDias * iRefeicoesDiarias);
+                this.respFreqRefeicaoCarne = new Resposta(6, iDias * iRefeicoesDiarias);
                 break;
             case 3:
                 // Raramente: média aproximada de 2 dias de refeições
                 iDias = 2;
-                this.respMassaCarne = new Resposta(10, iDias * iRefeicoesDiarias);
+                this.respFreqRefeicaoCarne = new Resposta(10, iDias * iRefeicoesDiarias);
                 break;
             default:
                 break;

@@ -5,6 +5,7 @@
  */
 package ViewControllers;
 
+import Classes.Calculadora;
 import Classes.GerenciadorDados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -51,9 +52,25 @@ public class ViewFinal extends javax.swing.JFrame {
     
     private void iniciaControles() {
         
+        // Cria a calculadora que fará a agregação de resultados das múltiplas models
+        Calculadora calculadora = new Calculadora();
+        
+        // Solicita à calculadora estimar e processar todos os resultados das models dadas
+        calculadora.estimarResultados(GerenciadorDados.getModels());
+        
+        // Recupera a pontuação final das models e coloca na tela com a sua cor
+        this.lblPercntCons1.setText(calculadora.getPontuacao().toString());
+        this.lblResultPercntCons.setText(calculadora.getConsciencia());
+        this.lblResultPercntCons.setForeground(calculadora.getCorConsciencia());
+        this.lblPercntCons1.setForeground(calculadora.getCorConsciencia());
+        this.lblResultPercntConsSimbolo.setForeground(calculadora.getCorConsciencia());
+        
         // Esta operação faz com que o Form apareça no centro da tela
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
+        // Isto faz com que o usuário não maximize a tela, fazendo com que quebre a diagramação do layout
+        this.setResizable(false);
     }
 
     /**
@@ -91,7 +108,7 @@ public class ViewFinal extends javax.swing.JFrame {
         lblTopCons = new javax.swing.JLabel();
         lblResultPercntCons = new javax.swing.JLabel();
         lblPercntCons1 = new javax.swing.JLabel();
-        lblResultPercntCons1 = new javax.swing.JLabel();
+        lblResultPercntConsSimbolo = new javax.swing.JLabel();
         lblAproveitamento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -306,9 +323,9 @@ public class ViewFinal extends javax.swing.JFrame {
         lblTopCons.setText("Você é um Consumidor");
         lblTopCons.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        lblResultPercntCons.setFont(new java.awt.Font("Myriad Pro", 0, 64)); // NOI18N
+        lblResultPercntCons.setFont(new java.awt.Font("Myriad Pro", 0, 52)); // NOI18N
         lblResultPercntCons.setForeground(new java.awt.Color(0, 153, 102));
-        lblResultPercntCons.setText("Consciente");
+        lblResultPercntCons.setText("Não Consciente");
         lblResultPercntCons.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         lblPercntCons1.setFont(new java.awt.Font("Myriad Pro", 0, 100)); // NOI18N
@@ -318,10 +335,10 @@ public class ViewFinal extends javax.swing.JFrame {
         lblPercntCons1.setToolTipText("");
         lblPercntCons1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        lblResultPercntCons1.setFont(new java.awt.Font("Myriad Pro", 0, 48)); // NOI18N
-        lblResultPercntCons1.setForeground(new java.awt.Color(0, 153, 102));
-        lblResultPercntCons1.setText("%");
-        lblResultPercntCons1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblResultPercntConsSimbolo.setFont(new java.awt.Font("Myriad Pro", 0, 48)); // NOI18N
+        lblResultPercntConsSimbolo.setForeground(new java.awt.Color(0, 153, 102));
+        lblResultPercntConsSimbolo.setText("%");
+        lblResultPercntConsSimbolo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         lblAproveitamento.setFont(new java.awt.Font("Myriad Pro", 0, 20)); // NOI18N
         lblAproveitamento.setForeground(new java.awt.Color(153, 153, 153));
@@ -349,7 +366,7 @@ public class ViewFinal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAproveitamento, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblResultPercntCons1))
+                            .addComponent(lblResultPercntConsSimbolo))
                         .addGap(31, 31, 31))))
         );
         jPanel6Layout.setVerticalGroup(
@@ -366,11 +383,11 @@ public class ViewFinal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(lblResultPercntCons1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblResultPercntConsSimbolo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblAproveitamento))
                     .addComponent(lblPercntCons1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 290, 610, 270));
@@ -441,7 +458,7 @@ public class ViewFinal extends javax.swing.JFrame {
     private javax.swing.JLabel lblResultEsp2;
     private javax.swing.JLabel lblResultGlob;
     private javax.swing.JLabel lblResultPercntCons;
-    private javax.swing.JLabel lblResultPercntCons1;
+    private javax.swing.JLabel lblResultPercntConsSimbolo;
     private javax.swing.JLabel lblSugMelh1;
     private javax.swing.JLabel lblSugMelh2;
     private javax.swing.JLabel lblSugMelh3;

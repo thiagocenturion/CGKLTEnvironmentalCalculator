@@ -59,6 +59,7 @@ public class FormAlimento extends ViewFormBase {
         this.btnOpcao2B.setText("Algumas vezes na semana");
         this.btnOpcao2C.setText("Raramente");
         
+        // TODO: Colocar pergunta sobre doces
         // Configura terceira questão da página
         this.lblPerg3.setText("<HTML><p align=\"justify\">Quantas vezes por dia costuma fazer refeição?</p></HTML>");
         this.btnOpcao3A.setText("1 a 2");
@@ -77,7 +78,7 @@ public class FormAlimento extends ViewFormBase {
 //            modelAlimentos.setOpcaoTipoCombustivel(super.getSelecionado(3));
 
             // Armazena o modelo em um array list estático na memória
-            GerenciadorDados.getModels().add(modelAlimentos);
+            GerenciadorDados.getModels().put(GerenciadorDados.ALIMENTOS, modelAlimentos);
             
             // Cria uma instância da tela final
             ViewFinal viewFinal = new ViewFinal();

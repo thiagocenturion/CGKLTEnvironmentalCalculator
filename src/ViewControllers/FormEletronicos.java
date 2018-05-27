@@ -48,7 +48,7 @@ public class FormEletronicos extends ViewFormBase {
         this.lblIcon.setIcon(new ImageIcon( getClass().getResource("/img/IconEletronicos.png")) );
         
         // Configura primeira questão da página
-        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantos celulares você teve nos últimos 5 anos?</p></HTML>");
+        this.lblPerg1.setText("<HTML><p align=\"justify\">Quantos celulares você já teve?</p></HTML>");
         this.btnOpcao1A.setText("Nenhum ou 1");
         this.btnOpcao1B.setText("2 ou 3");
         this.btnOpcao1C.setText("4 ou mais");
@@ -75,7 +75,7 @@ public class FormEletronicos extends ViewFormBase {
             modelEletronicos.setOpcaoQtdeEletronicos(super.getSelecionado(3));
              
             // Armazena o modelo em um array list estático na memória
-            GerenciadorDados.getModels().add(modelEletronicos);
+            GerenciadorDados.getModels().put(GerenciadorDados.ELETRONICOS, modelEletronicos);
             
             // Cria uma instância da nova tela a ser aberta
             FormRoupa formRoupas = new FormRoupa(4);

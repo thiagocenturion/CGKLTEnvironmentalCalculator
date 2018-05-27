@@ -54,7 +54,7 @@ public class FormFolha extends ViewFormBase {
         this.btnOpcao1C.setText("Nenhuma");
         
         // Configura segunda questão da página
-        this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via do pagamento ao realizar com cartão?</p></HTML>");
+        this.lblPerg2.setText("<HTML><p align=\"justify\">Na maioria dos casos, você costuma solicitar a segunda via ao realizar pagamento com cartão?</p></HTML>");
         this.btnOpcao2A.setText("Sim");
         this.btnOpcao2B.setText("Não");
         this.btnOpcao2C.setText("Não sei");
@@ -75,7 +75,7 @@ public class FormFolha extends ViewFormBase {
             modelFolhas.setOpcaoCadernos(super.getSelecionado(3));
             
             // Armazena o modelo em um array list estático na memória
-            GerenciadorDados.getModels().add(modelFolhas);
+            GerenciadorDados.getModels().put(GerenciadorDados.FOLHAS, modelFolhas);
             
             // Cria uma instância da nova tela a ser aberta
             FormAutomovel formAutomoveis = new FormAutomovel(2);

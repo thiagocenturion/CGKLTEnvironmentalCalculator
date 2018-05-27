@@ -49,6 +49,9 @@ public class viewInicio extends javax.swing.JFrame {
         // Esta operação faz com que o Form apareça no centro da tela
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
+        // Isto faz com que o usuário não maximize a tela, fazendo com que quebre a diagramação do layout
+        this.setResizable(false);
     }
 
     /**

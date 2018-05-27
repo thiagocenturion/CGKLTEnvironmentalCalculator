@@ -78,7 +78,7 @@ public class FormRoupa extends ViewFormBase {
             FormAlimento formAlimentos = new FormAlimento(5);
             
             // Armazena o modelo em um array list estático na memória
-            GerenciadorDados.getModels().add(modelRoupas);
+            GerenciadorDados.getModels().put(GerenciadorDados.ROUPAS, modelRoupas);
 
             // Seta que ela deve ser visível
             formAlimentos.setVisible(true);

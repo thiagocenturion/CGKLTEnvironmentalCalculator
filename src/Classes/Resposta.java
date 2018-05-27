@@ -22,12 +22,16 @@ public class Resposta {
         this.quantidadeValor = quantidadeValor;
     }
 
-    public float getPontuacao() {
+    public int getPontuacao() {
         return pontuacao;
     }
 
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
+    }
+    
+    public Resposta() {
+        super();
     }
     
     public Resposta(int iPontuacao, float fQtdeValor) {

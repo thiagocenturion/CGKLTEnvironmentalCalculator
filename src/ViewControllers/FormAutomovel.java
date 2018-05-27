@@ -75,7 +75,7 @@ public class FormAutomovel extends ViewFormBase {
             modelAutomoveis.setOpcaoTipoCombustivel(super.getSelecionado(3));
             
             // Armazena o modelo em um array list estático na memória
-            GerenciadorDados.getModels().add(modelAutomoveis);
+            GerenciadorDados.getModels().put(GerenciadorDados.AUTOMOVEIS, modelAutomoveis);
             
             // Cria uma instância da nova tela a ser aberta
             FormEletronicos formEletronicos = new FormEletronicos(3);
