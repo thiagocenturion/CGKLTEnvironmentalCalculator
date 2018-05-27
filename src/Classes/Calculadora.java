@@ -18,7 +18,7 @@ public class Calculadora {
     
     private int pontuacao;
     private float resultadoAgua;
-    private Map<String, Resposta> mapSaidaResultados;
+    private Map<String, Resposta[]> mapSaidaResultados;
     private String consciencia;
     private Color corConsciencia;
     
@@ -26,7 +26,7 @@ public class Calculadora {
         return pontuacao;
     }
     
-    public Map<String, Resposta> getResultados() {
+    public Map<String, Resposta[]> getResultados() {
         return mapSaidaResultados;
     }
     
@@ -77,6 +77,7 @@ public class Calculadora {
         this.resultadoAgua = 0.0f;
         int iTotalPontuacao = 0;
         float fAux = 0.0f;
+        Resposta[] arrResultados;
         
         // Instancia do Map que obterá os resultados de saída
         this.mapSaidaResultados = new HashMap<>();
@@ -117,7 +118,7 @@ public class Calculadora {
             this.resultadoAgua += fQuantidadeAux * 10.0f;
             
             // Adiciona o resultado das folhas dentro do map
-            this.mapSaidaResultados.put(GerenciadorDados.FOLHAS, resultadoAux);
+            this.mapSaidaResultados.put(GerenciadorDados.FOLHAS, new Resposta[]{resultadoAux});
         }
         
         // Caso tenha pegado o modelo de automoveis
@@ -168,7 +169,7 @@ public class Calculadora {
             this.resultadoAgua += modelAutomoveis.getRespSairCarro().getQuantidadeValor() * 50.0f * modelAutomoveis.getRespQtdeAutomoveis().getQuantidadeValor();
             
             // Adiciona o resultado dentro do map
-            this.mapSaidaResultados.put(GerenciadorDados.AUTOMOVEIS, resultadoAux);
+            this.mapSaidaResultados.put(GerenciadorDados.AUTOMOVEIS, new Resposta[]{resultadoAux});
         }
         
         // Caso tenha pegado o modelo de eletronicos
@@ -177,7 +178,7 @@ public class Calculadora {
             // Soma a contagem dos pontos
             iPontuacaoTotalAux = modelEletronicos.getRespQtdeCelulares().getPontuacao();
             iPontuacaoTotalAux += modelEletronicos.getRespQtdeComputadores().getPontuacao();
-//            iPontuacaoTotalAux += modelEletronicos.getRespQtdeEletronicos().getPontuacao();
+            iPontuacaoTotalAux += modelEletronicos.getRespQtdeTV().getPontuacao();
             
             // Faz a iteração da pontuação geral
             iTotalPontuacao += iPontuacaoTotalAux;
@@ -187,8 +188,41 @@ public class Calculadora {
             resultadoAux = new Resposta();
             resultadoAux.setPontuacao( (iPontuacaoTotalAux * 100) / 30 );
             
+            // Como a quantidade total de TVs, computadores e notebooks possui a mesma unidade de medida da regra específica, então apenas
+            // somamos e adicionamos na sua fórmula
+            fQuantidadeAux = modelEletronicos.getRespQtdeTV().getQuantidadeValor();
+            fQuantidadeAux += modelEletronicos.getRespQtdeComputadores().getQuantidadeValor();
+            
+            // Regra Específica: 1 TV/computador/notebook - 240kg combustivel fossil
+            resultadoAux.setQuantidadeValor( fQuantidadeAux * 240.0f );
+            
+            // Instancia um array novo já que precisaremos de mais de uma resposta para esta seção (2 respostas)
+            // Indice 1 : Combustivel fóssil em Kg
+            // Indice 2 : CO2 em Kg
+            arrResultados = new Resposta[2];
+            arrResultados[1] = resultadoAux;
+            
+            // Cria uma nova instância de 'Resposta', agora para o resultado em CO2 dos celulares
+            // Passa como pontuacao o seu valor em PERCENTUAL novamente, pois continua o mesmo
+            resultadoAux = new Resposta();
+            resultadoAux.setPontuacao( (iPontuacaoTotalAux * 100) / 30 );
+            
+            // Regra Específica para celulares: 16 Kg de CO2 por 1 smartphone
+            fQuantidadeAux = modelEletronicos.getRespQtdeCelulares().getQuantidadeValor();
+            resultadoAux.setQuantidadeValor( fQuantidadeAux * 16.0f );
+            
+            // Indice 2 : CO2 em Kg
+            arrResultados[2] = resultadoAux;
+            
+            // Calcula a regra global (água) 1 : 1.500kg por 1 notebook/computador ou por 1 TV
+            // Como a densidade da água é 0,997kg/L, então 1.500kg de água = 1.504,5 L por 1 notebook/computador ou por 1 TV
+            this.resultadoAgua += 1504.5f * (modelEletronicos.getRespQtdeComputadores().getQuantidadeValor() + modelEletronicos.getRespQtdeTV().getQuantidadeValor());
+            
+            // Calcula a regra global (água) 2 : 12.760 L por 1 Smartphone
+            this.resultadoAgua += modelEletronicos.getRespQtdeCelulares().getQuantidadeValor() * 12760.0f;
+            
             // Adiciona o resultado dentro do map
-            this.mapSaidaResultados.put(GerenciadorDados.ELETRONICOS, resultadoAux);
+            this.mapSaidaResultados.put(GerenciadorDados.ELETRONICOS, arrResultados);
         }
         
         // Caso tenha pegado o modelo de roupas
@@ -208,7 +242,7 @@ public class Calculadora {
             iTotalPontuacao += iPontuacaoTotalAux;
             
             // Adiciona o resultado dentro do map
-            this.mapSaidaResultados.put(GerenciadorDados.ROUPAS, resultadoAux);
+            this.mapSaidaResultados.put(GerenciadorDados.ROUPAS, new Resposta[]{resultadoAux});
         }
         
         // Caso tenha pegado o modelo de alimentos
@@ -228,7 +262,7 @@ public class Calculadora {
             iTotalPontuacao += iPontuacaoTotalAux;
             
             // Adiciona o resultado dentro do map
-            this.mapSaidaResultados.put(GerenciadorDados.ALIMENTOS, resultadoAux);
+            this.mapSaidaResultados.put(GerenciadorDados.ALIMENTOS, new Resposta[]{resultadoAux});
         }
         
         // Monta a pontuação, de valor em PERCENTUAL, sobre seu desempenho total de todos os temas

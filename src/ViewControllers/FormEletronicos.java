@@ -60,10 +60,10 @@ public class FormEletronicos extends ViewFormBase {
         this.btnOpcao2C.setText("5 computadores ou mais");
         
         // Configura terceira questão da página
-        this.lblPerg3.setText("<HTML><p align=\"justify\">Além dos eletrônicos acima, quantos outros você possui? (Ex: Câmera fotográfica, TV, video-game, etc)</p></HTML>");
-        this.btnOpcao3A.setText("2 a 5 eletrônicos");
-        this.btnOpcao3B.setText("6 a 8 eletrônicos");
-        this.btnOpcao3C.setText("9 ou mais");
+        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantas TVs você já teve?</p></HTML>");
+        this.btnOpcao3A.setText("1 a 2 TVs");
+        this.btnOpcao3B.setText("3 a 4 TVs");
+        this.btnOpcao3C.setText("5 ou mais");
         
         // Expressão Lambda para evento de clique do botão Continuar
         this.btnContinuar.addActionListener((ActionEvent e) -> {
@@ -72,7 +72,7 @@ public class FormEletronicos extends ViewFormBase {
             ModelEletronicos modelEletronicos = new ModelEletronicos();
             modelEletronicos.setOpcaoQtdeCelulares(super.getSelecionado(1));
             modelEletronicos.setOpcaoQtdeComputadores(super.getSelecionado(2));
-            modelEletronicos.setOpcaoQtdeEletronicos(super.getSelecionado(3));
+            modelEletronicos.setOpcaoQtdeTV(super.getSelecionado(3));
              
             // Armazena o modelo em um array list estático na memória
             GerenciadorDados.getModels().put(GerenciadorDados.ELETRONICOS, modelEletronicos);

@@ -15,7 +15,7 @@ public class ModelEletronicos {
     
     private Resposta respQtdeCelulares;
     private Resposta respQtdeComputadores;
-    private Resposta respQtdeEletronicos;
+    private Resposta respQtdeTV;
 
     public Resposta getRespQtdeCelulares() {
         return respQtdeCelulares;
@@ -25,8 +25,8 @@ public class ModelEletronicos {
         return respQtdeComputadores;
     }
     
-    public Resposta getRespQtdeEletronicos() {
-        return respQtdeEletronicos;
+    public Resposta getRespQtdeTV() {
+        return respQtdeTV;
     }
             
     /**
@@ -77,21 +77,21 @@ public class ModelEletronicos {
     
     /**
      * Quantidade medida em unidades.
-     * REGRA ESPECÍFICA: TODO
-     * REGRA GLOBAL (água): TODO
-     * @param iQtdeEletronicos Valor do radio button digitado
+     * REGRA ESPECÍFICA: 1 TV - 240kg combustivel fossil e 22kg de produtos quimicos
+     * REGRA GLOBAL (água): 1 TV - 1,5 toneladas de água
+     * @param iQtdeTV Valor do radio button digitado
      */
-    public void setOpcaoQtdeEletronicos(int iQtdeEletronicos) {
+    public void setOpcaoQtdeTV(int iQtdeTV) {
         
-        switch (iQtdeEletronicos) {
+        switch (iQtdeTV) {
             case 1:
-                this.respQtdeComputadores = new Resposta(10, 3.5f);
+                this.respQtdeTV = new Resposta(10, 1.5f);
                 break;
             case 2:
-                this.respQtdeComputadores = new Resposta(6, 7.0f);
+                this.respQtdeTV = new Resposta(6, 3.5f);
                 break;
             case 3:
-                this.respQtdeComputadores = new Resposta(3, 10.0f);
+                this.respQtdeTV = new Resposta(3, 5.0f);
                 break;
             default:
                 break;
