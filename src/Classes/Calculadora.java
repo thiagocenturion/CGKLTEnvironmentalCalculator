@@ -241,6 +241,52 @@ public class Calculadora {
             // Faz a iteração da pontuação geral
             iTotalPontuacao += iPontuacaoTotalAux;
             
+            /**
+            * Quantidade medida em unidades de calça jeans.
+            * Regra específica: 1 Calça jeans - 160 Kg de CO2
+            */
+            fQuantidadeAux = modelRoupas.getRespQtdeJeans().getQuantidadeValor();
+            
+            /**
+            * Quantidade medida em unidades negativas de calça jeans. Para cada calça jeans, subtrai um da conta.
+            * Regra específica: 1 Calça jeans - 160 Kg de CO2
+            */
+            fQuantidadeAux -= modelRoupas.getRespQtdeSustentaveis().getQuantidadeValor();
+            
+            // Esta operação não permite que fique menor que 0
+            if ( fQuantidadeAux < 0 ) {
+                fQuantidadeAux = 0.0f;
+            }
+            
+            // Calcula a regra global (água) 1: A cada um calça jeans gasta 10.000 L de agua
+            this.resultadoAgua += fQuantidadeAux * 10000.0f;
+            
+            // Multiplica o resultado final pela regra especifica de 160kg de CO2
+            fQuantidadeAux *= 160.0f;
+            
+            /**
+            * Quantidade medida em vezes que compra-se os conjuntos de roupas a baixo.
+            * Foi adotado como padrão que a pessoa compra pelo menos, no periodo determinado, o equivalente a: 1 camiseta, 1 jeans, 1 jaqueta, 1 vestido e 1 short.
+            * TODO: Multiplicar a quantidade por cada uma das regras especificas a baixo
+            * REGRA ESPECÍFICA: 1 Camiseta - 40kgCO2. 1 Calça Jeans - 160 kgCO2, 1 Jaqueta - 80kgCO2, 1 Vestido - 70kgCO2, 1 Shorts - 100kgCO2
+            */
+            fAux = modelRoupas.getRespFreqCompraRoupas().getQuantidadeValor();
+            fQuantidadeAux += fAux * 40.0f; // Vezes que compra camiseta
+            fQuantidadeAux += fAux * 160.0f; // Vezes que compra jeans
+            fQuantidadeAux += fAux * 80.0f; // Vezes que compra jaqueta
+            fQuantidadeAux += fAux * 70.0f; // Vezes que compra vestido
+            fQuantidadeAux += fAux * 100.0f; // Vezes que compra shorts
+            
+            // Adiciona no objeto de resultado
+            resultadoAux.setQuantidadeValor(fQuantidadeAux);
+            
+            // Calcula a regra global (água) 2
+            this.resultadoAgua += fAux * 10.000f; // 1 Calça jeans - 10mil Litros
+            this.resultadoAgua += fAux * 2.495f; // 1 Camiseta - 2.495 litros
+            this.resultadoAgua += fAux * 6.000f; // 1 Jaqueta - 6.000 litros
+            this.resultadoAgua += fAux * 5.850f; // 1  Vestido - 5.850 litros
+            this.resultadoAgua += fAux * 7.000f; // 1 Shorts - 7 mil litros.
+            
             // Adiciona o resultado dentro do map
             this.mapSaidaResultados.put(GerenciadorDados.ROUPAS, new Resposta[]{resultadoAux});
         }
