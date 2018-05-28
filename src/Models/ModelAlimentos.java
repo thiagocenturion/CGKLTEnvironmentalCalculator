@@ -15,6 +15,7 @@ public class ModelAlimentos {
     
     private Resposta respMassaCarne;
     private Resposta respFreqRefeicaoCarne;
+    private Resposta respMassaArroz;
     
     public Resposta getRespMassaCarne() {
         return respMassaCarne;
@@ -22,6 +23,10 @@ public class ModelAlimentos {
     
     public Resposta getRespFreqRefeicaoCarne() {
         return respFreqRefeicaoCarne;
+    }
+    
+    public Resposta getRespMassaArroz() {
+        return respMassaArroz;
     }
     
     /**
@@ -77,6 +82,32 @@ public class ModelAlimentos {
                 // Raramente: média aproximada de 2 dias de refeições
                 iDias = 2;
                 this.respFreqRefeicaoCarne = new Resposta(10, iDias * iRefeicoesDiarias);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    /**
+     * Quantidade medida em Kg.
+     * Multiplica a massa encontrada aqui pela frequencia de refeiçoes com carne
+     * REGRA GLOBAL (água): 0,1Kg de arroz - 260 litros
+     * @param iMassaArroz Valor do radio button digitado
+     */
+    public void setMassaArroz(int iMassaArroz) {
+        
+        switch (iMassaArroz) {
+            case 1:
+                // Todas as refeiçõe: Pega todas as refeições que a pessoa faz. Cada porção de arroz é 100g
+                this.respMassaArroz = new Resposta( 3, (this.respFreqRefeicaoCarne.getQuantidadeValor() * 0.1f) );
+                break;
+            case 2:
+                // Metade as refeições: Pega todas as refeições que a pessoa faz e divide por 2. Cada porção de arroz é 100g
+                this.respMassaArroz = new Resposta( 6, (this.respFreqRefeicaoCarne.getQuantidadeValor() * 0.1f) / 2 );
+                break;
+            case 3:
+                // Nenhuma das refeições: 0
+                this.respMassaArroz = new Resposta( 10, 0.0f );
                 break;
             default:
                 break;

@@ -200,7 +200,7 @@ public class Calculadora {
             // Indice 1 : Combustivel fóssil em Kg
             // Indice 2 : CO2 em Kg
             arrResultados = new Resposta[2];
-            arrResultados[1] = resultadoAux;
+            arrResultados[0] = resultadoAux;
             
             // Cria uma nova instância de 'Resposta', agora para o resultado em CO2 dos celulares
             // Passa como pontuacao o seu valor em PERCENTUAL novamente, pois continua o mesmo
@@ -212,7 +212,7 @@ public class Calculadora {
             resultadoAux.setQuantidadeValor( fQuantidadeAux * 16.0f );
             
             // Indice 2 : CO2 em Kg
-            arrResultados[2] = resultadoAux;
+            arrResultados[1] = resultadoAux;
             
             // Calcula a regra global (água) 1 : 1.500kg por 1 notebook/computador ou por 1 TV
             // Como a densidade da água é 0,997kg/L, então 1.500kg de água = 1.504,5 L por 1 notebook/computador ou por 1 TV
@@ -297,7 +297,7 @@ public class Calculadora {
             // Soma a contagem dos pontos
             iPontuacaoTotalAux = modelAlimentos.getRespFreqRefeicaoCarne().getPontuacao();
             iPontuacaoTotalAux += modelAlimentos.getRespMassaCarne().getPontuacao();
-//            iPontuacaoTotalAux += modelAlimentos.getRespQtdeSustentaveis().getPontuacao();
+            iPontuacaoTotalAux += modelAlimentos.getRespMassaArroz().getPontuacao();
             
             // Cria a instância de 'Resposta' passando como pontuacao o seu valor em PERCENTUAL sobre seu desempenho no tema
             // A pontuação é em relação ao valor máximo possivel das questões, que é 30, e estamos trabalhando com arredondamento para armazenar em tipo de dado INT
@@ -306,6 +306,17 @@ public class Calculadora {
 
             // Faz a iteração da pontuação geral
             iTotalPontuacao += iPontuacaoTotalAux;
+            
+            // Calcula o gasto em Kg de CO2 através da carne. Multiplica a massa de carne que a pessoa ingere pela frequencia de refeicoes que ela realiza
+            // Regra específica: 1 Kg de carne - 225kg CO2
+            fQuantidadeAux = 225.0f * modelAlimentos.getRespMassaCarne().getQuantidadeValor() * modelAlimentos.getRespFreqRefeicaoCarne().getQuantidadeValor();
+            resultadoAux.setQuantidadeValor(fQuantidadeAux);
+            
+            // Regra global (água) 1 : 1 Kg de carne - 15 mil litros
+            this.resultadoAgua += 15000.0f * modelAlimentos.getRespMassaCarne().getQuantidadeValor() * modelAlimentos.getRespFreqRefeicaoCarne().getQuantidadeValor();
+            
+            // Regra global (água) 2 : 1 Kg de arroz - 2600 litros
+            this.resultadoAgua += 2600.0f * modelAlimentos.getRespMassaCarne().getQuantidadeValor() * modelAlimentos.getRespFreqRefeicaoCarne().getQuantidadeValor();
             
             // Adiciona o resultado dentro do map
             this.mapSaidaResultados.put(GerenciadorDados.ALIMENTOS, new Resposta[]{resultadoAux});

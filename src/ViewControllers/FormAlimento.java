@@ -61,10 +61,10 @@ public class FormAlimento extends ViewFormBase {
         
         // TODO: Colocar pergunta sobre doces
         // Configura terceira questão da página
-        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantas vezes por dia costuma fazer refeição?</p></HTML>");
-        this.btnOpcao3A.setText("1 a 2");
-        this.btnOpcao3B.setText("3 a 4");
-        this.btnOpcao3C.setText("5 ou mais");
+        this.lblPerg3.setText("<HTML><p align=\"justify\">Quantas das suas refeições possui porção de arroz?</p></HTML>");
+        this.btnOpcao3A.setText("Todas");
+        this.btnOpcao3B.setText("Metade");
+        this.btnOpcao3C.setText("Nenhuma");
         
         // Setup do texto apresentado no botão para 'finalizar' e ir para a tela final
         this.btnContinuar.setText("Finalizar");
@@ -75,7 +75,7 @@ public class FormAlimento extends ViewFormBase {
             ModelAlimentos modelAlimentos = new ModelAlimentos();
             modelAlimentos.setMassaCarne(super.getSelecionado(1));
             modelAlimentos.setFreqRefeicaoCarne(super.getSelecionado(2));
-//            modelAlimentos.setOpcaoTipoCombustivel(super.getSelecionado(3));
+            modelAlimentos.setMassaArroz(super.getSelecionado(3));
 
             // Armazena o modelo em um array list estático na memória
             GerenciadorDados.getModels().put(GerenciadorDados.ALIMENTOS, modelAlimentos);
