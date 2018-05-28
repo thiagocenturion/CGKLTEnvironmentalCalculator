@@ -30,6 +30,10 @@ public class Calculadora {
         return mapSaidaResultados;
     }
     
+    public float getResultadoAgua() {
+        return resultadoAgua;
+    }
+    
     public String getConsciencia() {
         String sRetorno = "";
         
@@ -162,6 +166,7 @@ public class Calculadora {
             }
             
             // Agora multiplica este valor pela quantidade de carros que ela possui
+            // Kg de CO2
             resultadoAux.setQuantidadeValor( fQuantidadeAux * modelAutomoveis.getRespQtdeAutomoveis().getQuantidadeValor() );
             
             // Calcula a regra global (água): 13 L / km
@@ -278,6 +283,7 @@ public class Calculadora {
             fQuantidadeAux += fAux * 100.0f; // Vezes que compra shorts
             
             // Adiciona no objeto de resultado
+            // Kg de CO2
             resultadoAux.setQuantidadeValor(fQuantidadeAux);
             
             // Calcula a regra global (água) 2
