@@ -9,6 +9,9 @@ import Classes.Calculadora;
 import Classes.GerenciadorDados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -77,6 +80,10 @@ public class ViewFinal extends javax.swing.JFrame {
         
         float fAux = 0.0f;
         
+        // formatador de números para a língua português do Brasil
+        NumberFormat numberFormat = NumberFormat.getInstance(new Locale("pt","BR"));
+        numberFormat.setMaximumFractionDigits(3);
+        
         // Recupera a pontuação final das models e coloca na tela com a sua cor
         this.lblPercntCons1.setText(calculadora.getPontuacao().toString());
         this.lblResultPercntCons.setText(calculadora.getConsciencia());
@@ -88,7 +95,7 @@ public class ViewFinal extends javax.swing.JFrame {
          * Obtenção dos valores para Árvores de eucalipto
          */
         fAux = calculadora.getResultados().get(GerenciadorDados.FOLHAS)[0].getQuantidadeValor();
-        this.lblResultEsp3.setText( Float.toString(fAux) );
+        this.lblResultEsp3.setText( numberFormat.format(fAux) );
         
         /**
          * Obtenção dos valores para Kg de CO2
@@ -97,44 +104,44 @@ public class ViewFinal extends javax.swing.JFrame {
         fAux += calculadora.getResultados().get(GerenciadorDados.ELETRONICOS)[1].getQuantidadeValor();
         fAux += calculadora.getResultados().get(GerenciadorDados.ROUPAS)[0].getQuantidadeValor();
         fAux += calculadora.getResultados().get(GerenciadorDados.ALIMENTOS)[0].getQuantidadeValor();
-        this.lblResultEsp2.setText( Float.toString(fAux) );
+        this.lblResultEsp2.setText( numberFormat.format( Float.parseFloat(String.format("%.2f", fAux)) ) );
         
         /**
          * Obtenção dos valores para Kg de Combustíveis fósseis
          */
         fAux = calculadora.getResultados().get(GerenciadorDados.ELETRONICOS)[0].getQuantidadeValor();
-        this.lblResultEsp1.setText( Float.toString(fAux) );
+        this.lblResultEsp1.setText( numberFormat.format(fAux) );
         
         /**
          * Obtenção dos valores para água e banhos
          * 1 Banho de 6 minutos = 50 L de água
          */
-        this.lblResultGlob.setText( Float.toString( calculadora.getResultadoAgua() ) );
-        this.lblResultBanhos.setText( Integer.toString( Math.round(calculadora.getResultadoAgua() / 50.0f) ) );
+        this.lblResultGlob.setText( numberFormat.format( Math.round( calculadora.getResultadoAgua() ) ) );
+        this.lblResultBanhos.setText( numberFormat.format( Math.round(calculadora.getResultadoAgua() / 50.0f) ) );
     }
     
     public void mostraDicasDesempenho(Calculadora calculadora) {
         
         // Caso o usuário tenha atingido uma nota abaixo de 50% para FOLHAS
-        if ( calculadora.getResultados().get(GerenciadorDados.FOLHAS)[0].getPontuacao() < 50 ) {
+        if ( calculadora.getResultados().get(GerenciadorDados.FOLHAS)[0].getPontuacao() < 60 ) {
             // Mostra na tela dicas referente a folhas
             setLabelDicas("<HTML><p align=\"justify\">- Priorize documentos, materiais e extratos digitais para economizar papel.</p></HTML>");
         }
         
         // Caso o usuário tenha atingido uma nota abaixo de 50% para AUTOMÓVEIS
-        if ( calculadora.getResultados().get(GerenciadorDados.AUTOMOVEIS)[0].getPontuacao() < 50 ) {
+        if ( calculadora.getResultados().get(GerenciadorDados.AUTOMOVEIS)[0].getPontuacao() < 60 ) {
             // Mostra na tela dicas referente a folhas
             setLabelDicas("<HTML><p align=\"justify\">- Priorize utilizar transportes públicos ou compartilhar viagens com outras pessoas no mesmo automóvel.</p></HTML>");
         }
         
         // Caso o usuário tenha atingido uma nota abaixo de 50% para ELETRÔNICOS
-        if ( calculadora.getResultados().get(GerenciadorDados.ELETRONICOS)[0].getPontuacao() < 50 ) {
+        if ( calculadora.getResultados().get(GerenciadorDados.ELETRONICOS)[0].getPontuacao() < 60 ) {
             // Mostra na tela dicas referente a folhas
             setLabelDicas("<HTML><p align=\"justify\">- Mantenha seu eletrônico por mais tempo. Recicle ou descarte eletrônicos de forma correta.</p></HTML>");
         }
         
         // Caso o usuário tenha atingido uma nota abaixo de 50% para ROUPAS
-        if ( calculadora.getResultados().get(GerenciadorDados.ROUPAS)[0].getPontuacao() < 50 ) {
+        if ( calculadora.getResultados().get(GerenciadorDados.ROUPAS)[0].getPontuacao() < 60 ) {
             // Mostra na tela dicas referente a folhas
             setLabelDicas("<HTML><p align=\"justify\">- Conheça mais sobre o guarda-roupa “cápsula”.</p></HTML>");
         }
@@ -211,7 +218,6 @@ public class ViewFinal extends javax.swing.JFrame {
         lblSugMelh4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 795));
 
         jPanel1.setBackground(new java.awt.Color(235, 235, 235));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -407,7 +413,7 @@ public class ViewFinal extends javax.swing.JFrame {
         lblBottomGlob.setFont(new java.awt.Font("Myriad Pro", 0, 18)); // NOI18N
         lblBottomGlob.setForeground(new java.awt.Color(153, 153, 153));
         lblBottomGlob.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBottomGlob.setText("da água gasta no mundo");
+        lblBottomGlob.setText("da água gasta no mundo.");
         lblBottomGlob.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         lblTopGlob.setFont(new java.awt.Font("Myriad Pro", 0, 18)); // NOI18N
@@ -445,7 +451,7 @@ public class ViewFinal extends javax.swing.JFrame {
         lblBottomGlob3.setFont(new java.awt.Font("Myriad Pro", 0, 18)); // NOI18N
         lblBottomGlob3.setForeground(new java.awt.Color(153, 153, 153));
         lblBottomGlob3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblBottomGlob3.setText("de 6 minutos cada");
+        lblBottomGlob3.setText("de 6 minutos cada.");
         lblBottomGlob3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout pnlGlobLayout = new javax.swing.GroupLayout(pnlGlob);
@@ -459,18 +465,18 @@ public class ViewFinal extends javax.swing.JFrame {
             .addGroup(pnlGlobLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlGlobLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBottomGlob, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                    .addComponent(lblBottomGlob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblTopGlob, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlGlobLayout.createSequentialGroup()
-                        .addComponent(lblResultGlob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblResultGlob, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblResultEsp4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblBottomGlob2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                        .addComponent(lblResultEsp4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblBottomGlob2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlGlobLayout.createSequentialGroup()
                         .addComponent(lblResultBanhos, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblResultEsp7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblBottomGlob3, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE))
+                    .addComponent(lblBottomGlob3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlGlobLayout.setVerticalGroup(
