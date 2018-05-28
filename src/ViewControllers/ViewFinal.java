@@ -9,6 +9,7 @@ import Classes.Calculadora;
 import Classes.GerenciadorDados;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,13 +53,29 @@ public class ViewFinal extends javax.swing.JFrame {
     
     private void iniciaControles() {
         
-        float fAux = 0.0f;
-        
         // Cria a calculadora que fará a agregação de resultados das múltiplas models
         Calculadora calculadora = new Calculadora();
         
         // Solicita à calculadora estimar e processar todos os resultados das models dadas
         calculadora.estimarResultados(GerenciadorDados.getModels());
+        
+        // Depois que a calculadora estimou todos os resultados, aciona o método que os ajustam com os resultados na tela
+        ajustaResultadosTela(calculadora);
+        
+        // Aciona o método que mostra dicas de melhorias na tela conforme desempenho do consumidor
+        mostraDicasDesempenho(calculadora);
+        
+        // Esta operação faz com que o Form apareça no centro da tela
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
+        // Isto faz com que o usuário não maximize a tela, fazendo com que quebre a diagramação do layout
+        this.setResizable(false);
+    }
+    
+    public void ajustaResultadosTela(Calculadora calculadora) {
+        
+        float fAux = 0.0f;
         
         // Recupera a pontuação final das models e coloca na tela com a sua cor
         this.lblPercntCons1.setText(calculadora.getPontuacao().toString());
@@ -94,13 +111,51 @@ public class ViewFinal extends javax.swing.JFrame {
          */
         this.lblResultGlob.setText( Float.toString( calculadora.getResultadoAgua() ) );
         this.lblResultBanhos.setText( Integer.toString( Math.round(calculadora.getResultadoAgua() / 50.0f) ) );
+    }
+    
+    public void mostraDicasDesempenho(Calculadora calculadora) {
         
-        // Esta operação faz com que o Form apareça no centro da tela
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        // Caso o usuário tenha atingido uma nota abaixo de 50% para FOLHAS
+        if ( calculadora.getResultados().get(GerenciadorDados.FOLHAS)[0].getPontuacao() < 50 ) {
+            // Mostra na tela dicas referente a folhas
+            setLabelDicas("<HTML><p align=\"justify\">- Priorize documentos, materiais e extratos digitais para economizar papel.</p></HTML>");
+        }
         
-        // Isto faz com que o usuário não maximize a tela, fazendo com que quebre a diagramação do layout
-        this.setResizable(false);
+        // Caso o usuário tenha atingido uma nota abaixo de 50% para AUTOMÓVEIS
+        if ( calculadora.getResultados().get(GerenciadorDados.AUTOMOVEIS)[0].getPontuacao() < 50 ) {
+            // Mostra na tela dicas referente a folhas
+            setLabelDicas("<HTML><p align=\"justify\">- Priorize utilizar transportes públicos ou compartilhar viagens com outras pessoas no mesmo automóvel.</p></HTML>");
+        }
+        
+        // Caso o usuário tenha atingido uma nota abaixo de 50% para ELETRÔNICOS
+        if ( calculadora.getResultados().get(GerenciadorDados.ELETRONICOS)[0].getPontuacao() < 50 ) {
+            // Mostra na tela dicas referente a folhas
+            setLabelDicas("<HTML><p align=\"justify\">- Mantenha seu eletrônico por mais tempo. Recicle ou descarte eletrônicos de forma correta.</p></HTML>");
+        }
+        
+        // Caso o usuário tenha atingido uma nota abaixo de 50% para ROUPAS
+        if ( calculadora.getResultados().get(GerenciadorDados.ROUPAS)[0].getPontuacao() < 50 ) {
+            // Mostra na tela dicas referente a folhas
+            setLabelDicas("<HTML><p align=\"justify\">- Conheça mais sobre o guarda-roupa “cápsula”.</p></HTML>");
+        }
+    }
+    
+    public void setLabelDicas(String sTexto) {
+        
+        // Monta um array com todas as labels de dicas
+        JLabel[] arrLabelsDicas = new JLabel[]{this.lblSugMelh1, this.lblSugMelh2, this.lblSugMelh3, this.lblSugMelh4};
+        
+        // Looping pelas labels para verificar a próxima label a receber o texto
+        for ( JLabel lblAux : arrLabelsDicas ) {
+            
+            // Esta label ainda está vazia?
+            if ( lblAux.getText().equals("") ) {
+                
+                // Seta o texto recebido nela e finaliza a operação
+                lblAux.setText(sTexto);
+                break;
+            }
+        }
     }
 
     /**
@@ -153,6 +208,7 @@ public class ViewFinal extends javax.swing.JFrame {
         lblSugMelh1 = new javax.swing.JLabel();
         lblSugMelh2 = new javax.swing.JLabel();
         lblSugMelh3 = new javax.swing.JLabel();
+        lblSugMelh4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 795));
@@ -493,6 +549,9 @@ public class ViewFinal extends javax.swing.JFrame {
         lblSugMelh3.setFont(new java.awt.Font("Myriad Pro", 0, 18)); // NOI18N
         lblSugMelh3.setForeground(new java.awt.Color(153, 153, 153));
 
+        lblSugMelh4.setFont(new java.awt.Font("Myriad Pro", 0, 18)); // NOI18N
+        lblSugMelh4.setForeground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -520,7 +579,8 @@ public class ViewFinal extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblSugMelh3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblSugMelh2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblSugMelh1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblSugMelh1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSugMelh4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -546,10 +606,12 @@ public class ViewFinal extends javax.swing.JFrame {
                 .addComponent(lblSugMelh2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSugMelh3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSugMelh4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 610, 380));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 610, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -565,40 +627,6 @@ public class ViewFinal extends javax.swing.JFrame {
         setBounds(0, 0, 1000, 817);
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewFinal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewFinal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -632,6 +660,7 @@ public class ViewFinal extends javax.swing.JFrame {
     private javax.swing.JLabel lblSugMelh1;
     private javax.swing.JLabel lblSugMelh2;
     private javax.swing.JLabel lblSugMelh3;
+    private javax.swing.JLabel lblSugMelh4;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTopCons;
     private javax.swing.JLabel lblTopEsp1;

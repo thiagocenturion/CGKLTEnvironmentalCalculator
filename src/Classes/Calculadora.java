@@ -38,15 +38,15 @@ public class Calculadora {
         String sRetorno = "";
         
         // Se a pontuação estiver entre 61% a 100%, é um consumidor consciente
-        if ( this.pontuacao > 60.0f && this.pontuacao <= 100.0f ) {
+        if ( this.pontuacao > 70.0f && this.pontuacao <= 100.0f ) {
             sRetorno = "Consciente";
         }
         // Se a pontuação estiver entre 31% a 60%, é um consumidor indiferente
-        else if ( this.pontuacao > 30.0f && this.pontuacao <= 60.0f ) {
+        else if ( this.pontuacao > 40.0f && this.pontuacao <= 70.0f ) {
             sRetorno = "Indiferente";
         }
         // Se a pontuação estiver entre 0% a 30%, é um consumidor não consciente
-        else if ( this.pontuacao <= 30.0f ) {
+        else if ( this.pontuacao <= 40.0f ) {
             sRetorno = "Não Consciente";
         }
         
@@ -57,15 +57,15 @@ public class Calculadora {
         Color colorRetorno = null;
         
         // Se a pontuação estiver entre 61% a 100%, a cor é verde
-        if ( this.pontuacao > 60.0f && this.pontuacao <= 100.0f ) {
+        if ( this.pontuacao > 70.0f && this.pontuacao <= 100.0f ) {
             colorRetorno = new Color(0, 153, 102);
         }
         // Se a pontuação estiver entre 31% a 60%, a cor é amarela
-        else if ( this.pontuacao > 30.0f && this.pontuacao <= 60.0f ) {
+        else if ( this.pontuacao > 40.0f && this.pontuacao <= 70.0f ) {
             colorRetorno = new Color(204, 204, 0);
         }
         // Se a pontuação estiver entre 0% a 30%, a cor é vermelha
-        else if ( this.pontuacao <= 30.0f ) {
+        else if ( this.pontuacao <= 40.0f ) {
             colorRetorno = new Color(204, 0, 51);
         }
         
